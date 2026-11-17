@@ -35,16 +35,25 @@ namespace Plus
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
             CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
-            try
+            // Only run Windows Win32 console adjustments when on Windows NT
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {
-                DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_CLOSE, MF_BYCOMMAND);
+                try
+                {
+                    DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_CLOSE, MF_BYCOMMAND);
+                }
+                catch { }
             }
-            catch { }
 
             XmlConfigurator.Configure();
 
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.CursorVisible = false;
+            try
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.CursorVisible = false;
+            }
+            catch { }
+
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += MyHandler;
 
@@ -52,17 +61,29 @@ namespace Plus
 
             while (true)
             {
-                if (Console.ReadKey(true).Key == ConsoleKey.Enter)
+                try
                 {
-                    Console.Write("plus> ");
-                    string Input = Console.ReadLine();
-
-                    if (Input.Length > 0)
+                    if (Environment.UserInteractive && !Console.IsInputRedirected)
                     {
-                        string s = Input.Split(' ')[0];
-
-                        ConsoleCommands.InvokeCommand(s);
+                        string input = Console.ReadLine();
+                        if (!string.IsNullOrEmpty(input))
+                        {
+                            string s = input.Split(' ')[0];
+                            ConsoleCommands.InvokeCommand(s);
+                        }
                     }
+                    else
+                    {
+                        Thread.Sleep(1000);
+                    }
+                }
+                catch (ThreadAbortException)
+                {
+                    break;
+                }
+                catch
+                {
+                    Thread.Sleep(1000);
                 }
             }
         }

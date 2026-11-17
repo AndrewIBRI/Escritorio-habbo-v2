@@ -448,7 +448,12 @@ services:
     depends_on:
       - r63c-db
     networks:
-      - habbo-r63c-net
+      habbo-r63c-net:
+        aliases:
+          - server_flow-hotel
+          - flow-hotel
+          - r63c-web
+          - habbo-r63c-web
 
 # ==============================================================================
 # NETWORKS - Isolated Bridge Network per Retro (Zero Interference)

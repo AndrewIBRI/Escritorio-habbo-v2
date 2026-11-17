@@ -8,8 +8,8 @@ WORKDIR /app
 # Copy PlusEMU source and precompiled binaries
 COPY Retros-Portable/2015+2016+2017-r63c/2015+2016+2017-r63c/Emulator(PlusEMU)/ /app/
 
-# Build project with msbuild to include Linux-safe Program.cs patch
-RUN msbuild /p:Configuration=Debug /p:Platform="Any CPU" "Plus Emulator.csproj" || true
+# Build project with msbuild if needed, fallback to precompiled binary
+RUN msbuild /p:Configuration=Debug /p:Platform=x86 "Plus Emulator.csproj" || true
 
 WORKDIR /app/bin/Debug
 

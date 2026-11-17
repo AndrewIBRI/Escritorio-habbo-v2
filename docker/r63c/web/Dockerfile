@@ -18,6 +18,6 @@ COPY docker/r63c/web/crossdomain.xml /var/www/html/crossdomain.xml
 COPY docker/r63c/web/entrypoint.sh /entrypoint.sh
 RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 
-EXPOSE 80
+EXPOSE 80 8064
 
 ENTRYPOINT ["/entrypoint.sh"]
