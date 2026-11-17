@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -e
 
 echo "[*] ProjectHabbo CMS (2013+2014-r63b Swift) Web starting..."
@@ -31,12 +31,29 @@ echo \"[-] Timed out waiting for Database.\n\";
 exit(1);
 "
 
+# Easypanel & HTTPS Support
+if [ -n "${SITE_URL}" ]; then
+  HOTEL_URL="${SITE_URL}"
+elif [ -n "${PRIMARY_DOMAIN}" ]; then
+  HOTEL_URL="https://${PRIMARY_DOMAIN}"
+elif [ "${WEB_PORT}" = "80" ] || [ "${WEB_PORT}" = "443" ]; then
+  HOTEL_URL="http://${HOST_IP}"
+else
+  HOTEL_URL="http://${HOST_IP}:${WEB_PORT}"
+fi
+
+CLIENT_HOST="${CLIENT_HOST:-${HOST_IP:-${PRIMARY_DOMAIN}}}"
+CLIENT_HOST="${CLIENT_HOST#http://}"
+CLIENT_HOST="${CLIENT_HOST#https://}"
+CLIENT_HOST="${CLIENT_HOST%%/*}"
+CLIENT_HOST="${CLIENT_HOST%%:*}"
+
 # Generate CMS database config
 CONFIG_FILE="/var/www/html/data_classes/server-data.php_data_classes-config.php.php"
 cat <<EOF > "${CONFIG_FILE}"
 <?php
 \$Hotelname = "Habbo";
-\$hotel_url = "http://${HOST_IP}:${WEB_PORT}";
+\$hotel_url = "${HOTEL_URL}";
 \$MySQLhostname = "${DB_HOST}"; 
 \$MySQLusername = "${DB_USER}";
 \$MySQLpassword = "${DB_PASS}";
@@ -45,11 +62,11 @@ cat <<EOF > "${CONFIG_FILE}"
 \$Twitter_id = "ProjectHabbo";
 \$Email_admin = "contato@projecthabbo.com.br";
 \$avatar = "http://www.habbo.fr/habbo-imaging/avatarimage?figure=";
-\$cimages_url = "http://${HOST_IP}:${WEB_PORT}/swfs/c_images";
-\$server_ip = "${HOST_IP}";
+\$cimages_url = "${HOTEL_URL}/swfs/c_images";
+\$server_ip = "${CLIENT_HOST}";
 \$server_port = "${GAME_PORT}";
-\$external_var = "http://${HOST_IP}:${WEB_PORT}/swfs/gamedata/external_variables/22e1a7119e60eb26d87e3d3000592bd389fc2d3d.txt";
-\$external_text = "http://${HOST_IP}:${WEB_PORT}/swfs/gamedata/external_flash_texts/a18b0baa742c6a31de77b0f5e6ed3d2eca51dcde.txt";
+\$external_var = "${HOTEL_URL}/swfs/gamedata/external_variables/22e1a7119e60eb26d87e3d3000592bd389fc2d3d.txt";
+\$external_text = "${HOTEL_URL}/swfs/gamedata/external_flash_texts/a18b0baa742c6a31de77b0f5e6ed3d2eca51dcde.txt";
 ?>
 EOF
 
@@ -57,22 +74,23 @@ EOF
 php -r "
 \$link = @mysql_connect('${DB_HOST}:${DB_PORT}', '${DB_USER}', '${DB_PASS}');
 if (\$link && mysql_select_db('${DB_NAME}', \$link)) {
-    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_ip', '${HOST_IP}')\", \$link);
+    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_ip', '${CLIENT_HOST}')\", \$link);
     mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_port', '${GAME_PORT}')\", \$link);
     mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_mus', '${MUS_PORT}')\", \$link);
-    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('cms_url', 'http://${HOST_IP}:${WEB_PORT}')\", \$link);
+    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('cms_url', '${HOTEL_URL}')\", \$link);
     echo \"[+] CMS database settings updated.\n\";
     mysql_close(\$link);
 }
 "
 
 # Dynamic host injection in client.php and external_variables
-sed -i "s|connection.info.host\" : \"localhost\"|connection.info.host\" : \"${HOST_IP}\"|g" /var/www/html/client.php || true
+sed -i "s|connection.info.host\" : \"localhost\"|connection.info.host\" : \"${CLIENT_HOST}\"|g" /var/www/html/client.php || true
 sed -i "s|connection.info.port\" : \"300\"|connection.info.port\" : \"${GAME_PORT}\"|g" /var/www/html/client.php || true
-sed -i "s|http://localhost/|http://${HOST_IP}:${WEB_PORT}/|g" /var/www/html/client.php || true
-sed -i "s|http://localhost|http://${HOST_IP}:${WEB_PORT}|g" /var/www/html/client.php || true
+sed -i "s|http://localhost/|${HOTEL_URL}/|g" /var/www/html/client.php || true
+sed -i "s|http://localhost|${HOTEL_URL}|g" /var/www/html/client.php || true
 
-find /var/www/html/swfs/gamedata/ -type f -name "*.txt" -exec sed -i "s|//localhost/|//${HOST_IP}:${WEB_PORT}/|g" {} + || true
+find /var/www/html/swfs/gamedata/ -type f -name "*.txt" -exec sed -i "s|//localhost/|//${CLIENT_HOST}:${WEB_PORT}/|g" {} + || true
+find /var/www/html/swfs/gamedata/ -type f -name "*.txt" -exec sed -i "s|http://localhost/|${HOTEL_URL}/|g" {} + || true
 find /var/www/html/swfs/gamedata/ -type f -name "*.txt" -exec sed -i "s|http://localhost/|http://${HOST_IP}:${WEB_PORT}/|g" {} + || true
 
 echo "[*] Starting Apache..."

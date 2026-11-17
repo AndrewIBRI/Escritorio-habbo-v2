@@ -1,13 +1,20 @@
 <?php
-$proto = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+$proto = (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
 $hostHeader = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $hostParts = explode(':', $hostHeader);
-$clientHost = getenv('HOST_IP') ?: $hostParts[0];
-if ($clientHost === '0.0.0.0') {
-    $clientHost = $hostParts[0];
-}
 
-$siteUrl = $proto . '://' . $hostHeader;
+$primaryDomain = getenv('PRIMARY_DOMAIN') ?: '';
+$siteUrl = getenv('SITE_URL') ?: ($primaryDomain ? 'https://' . $primaryDomain : $proto . '://' . $hostHeader);
+
+$rawClientHost = getenv('HOST_IP') ?: ($primaryDomain ?: $hostParts[0]);
+// Strip http:// or https:// if present
+$cleanClientHost = preg_replace('#^https?://#', '', $rawClientHost);
+$cleanClientHost = explode('/', $cleanClientHost)[0];
+$cleanClientHost = explode(':', $cleanClientHost)[0];
+if ($cleanClientHost === '0.0.0.0' || empty($cleanClientHost)) {
+    $cleanClientHost = $hostParts[0];
+}
+$clientHost = $cleanClientHost;
 $gamePort = getenv('PORT_V14_GAME') ?: '12321';
 $musPort = getenv('PORT_V14_MUS') ?: '12322';
 $sso = isset($_GET['sso']) ? htmlspecialchars($_GET['sso'], ENT_QUOTES, 'UTF-8') : '';

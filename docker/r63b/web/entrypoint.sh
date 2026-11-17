@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -e
 
 echo "[*] HabboCMS (2012-r63b) Web starting..."
@@ -44,23 +44,40 @@ cat <<EOF > "${CONFIG_FILE}"
 ?>
 EOF
 
+# Easypanel & HTTPS Support
+if [ -n "${SITE_URL}" ]; then
+  HOTEL_URL="${SITE_URL}"
+elif [ -n "${PRIMARY_DOMAIN}" ]; then
+  HOTEL_URL="https://${PRIMARY_DOMAIN}"
+elif [ "${WEB_PORT}" = "80" ] || [ "${WEB_PORT}" = "443" ]; then
+  HOTEL_URL="http://${HOST_IP}"
+else
+  HOTEL_URL="http://${HOST_IP}:${WEB_PORT}"
+fi
+
+CLIENT_HOST="${CLIENT_HOST:-${HOST_IP:-${PRIMARY_DOMAIN}}}"
+CLIENT_HOST="${CLIENT_HOST#http://}"
+CLIENT_HOST="${CLIENT_HOST#https://}"
+CLIENT_HOST="${CLIENT_HOST%%/*}"
+CLIENT_HOST="${CLIENT_HOST%%:*}"
+
 # Update cms_settings in MySQL database
 php -r "
 \$link = @mysql_connect('${DB_HOST}:${DB_PORT}', '${DB_USER}', '${DB_PASS}');
 if (\$link && mysql_select_db('${DB_NAME}', \$link)) {
-    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_ip', '${HOST_IP}')\", \$link);
+    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_ip', '${CLIENT_HOST}')\", \$link);
     mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_port', '${GAME_PORT}')\", \$link);
     mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('client_mus', '${MUS_PORT}')\", \$link);
-    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('cms_url', 'http://${HOST_IP}:${WEB_PORT}')\", \$link);
+    mysql_query(\"REPLACE INTO cms_settings (variable, value) VALUES ('cms_url', '${HOTEL_URL}')\", \$link);
     echo \"[+] CMS database settings updated.\n\";
     mysql_close(\$link);
 }
 "
 
 # Dynamic host injection in client.php and external_variables.txt
-sed -i "s|connection.info.host\" : \"localhost\"|connection.info.host\" : \"${HOST_IP}\"|g" /var/www/html/client.php || true
-sed -i "s|http://localhost/|http://${HOST_IP}:${WEB_PORT}/|g" /var/www/html/client.php || true
-sed -i "s|http://localhost/|http://${HOST_IP}:${WEB_PORT}/|g" /var/www/html/images/external_variables.txt || true
+sed -i "s|connection.info.host\" : \"localhost\"|connection.info.host\" : \"${CLIENT_HOST}\"|g" /var/www/html/client.php || true
+sed -i "s|http://localhost/|${HOTEL_URL}/|g" /var/www/html/client.php || true
+sed -i "s|http://localhost/|${HOTEL_URL}/|g" /var/www/html/images/external_variables.txt || true
 
 echo "[*] Starting Apache..."
 exec apache2-foreground

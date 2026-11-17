@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -e
 
 echo "[*] RevCMS (2015-2017-r63c PlusEMU) Web starting..."
@@ -31,6 +31,23 @@ echo \"[-] Timed out waiting for Database.\n\";
 exit(1);
 "
 
+# Easypanel & HTTPS Support
+if [ -n "${SITE_URL}" ]; then
+  HOTEL_URL="${SITE_URL}"
+elif [ -n "${PRIMARY_DOMAIN}" ]; then
+  HOTEL_URL="https://${PRIMARY_DOMAIN}"
+elif [ "${WEB_PORT}" = "80" ] || [ "${WEB_PORT}" = "443" ]; then
+  HOTEL_URL="http://${HOST_IP}"
+else
+  HOTEL_URL="http://${HOST_IP}:${WEB_PORT}"
+fi
+
+CLIENT_HOST="${CLIENT_HOST:-${HOST_IP:-${PRIMARY_DOMAIN}}}"
+CLIENT_HOST="${CLIENT_HOST#http://}"
+CLIENT_HOST="${CLIENT_HOST#https://}"
+CLIENT_HOST="${CLIENT_HOST%%/*}"
+CLIENT_HOST="${CLIENT_HOST%%:*}"
+
 # Generate RevCMS config.php
 CONFIG_FILE="/var/www/html/app/management/config.php"
 cat <<EOF > "${CONFIG_FILE}"
@@ -44,8 +61,8 @@ if(!defined('IN_INDEX')) { die('Sorry, you cannot access this file.'); }
 \$_CONFIG['mysql']['database'] = '${DB_NAME}';
 \$_CONFIG['mysql']['port'] = '${DB_PORT}';
 
-\$_CONFIG['hotel']['server_ip'] = '${HOST_IP}';
-\$_CONFIG['hotel']['url'] = 'http://${HOST_IP}:${WEB_PORT}';
+\$_CONFIG['hotel']['server_ip'] = '${CLIENT_HOST}';
+\$_CONFIG['hotel']['url'] = '${HOTEL_URL}';
 \$_CONFIG['hotel']['name'] = 'Habbo';
 \$_CONFIG['hotel']['desc'] = 'Retro Portable';
 \$_CONFIG['hotel']['email'] = 'Support@hotmail.com';
@@ -55,11 +72,11 @@ if(!defined('IN_INDEX')) { die('Sorry, you cannot access this file.'); }
 \$_CONFIG['hotel']['pixels'] = 150000000;
 \$_CONFIG['hotel']['figure'] = '-';
 \$_CONFIG['hotel']['web_build'] = '63_1dc60c6d6ea6e089c6893ab4e0541ee0/527';
-\$_CONFIG['hotel']['external_vars'] = 'http://${HOST_IP}:${WEB_PORT}/swf/gamedata/external_variables.txt';
-\$_CONFIG['hotel']['external_texts'] = 'http://${HOST_IP}:${WEB_PORT}/swf/gamedata/external_flash_texts.txt';
-\$_CONFIG['hotel']['product_data'] = 'http://${HOST_IP}:${WEB_PORT}/swf/gamedata/productdata.txt';
-\$_CONFIG['hotel']['furni_data'] = 'http://${HOST_IP}:${WEB_PORT}/swf/gamedata/furnidata.xml';
-\$_CONFIG['hotel']['swf_folder'] = 'http://${HOST_IP}:${WEB_PORT}/swf/gordon/PRODUCTION-201701242205-837386173';
+\$_CONFIG['hotel']['external_vars'] = '${HOTEL_URL}/swf/gamedata/external_variables.txt';
+\$_CONFIG['hotel']['external_texts'] = '${HOTEL_URL}/swf/gamedata/external_flash_texts.txt';
+\$_CONFIG['hotel']['product_data'] = '${HOTEL_URL}/swf/gamedata/productdata.txt';
+\$_CONFIG['hotel']['furni_data'] = '${HOTEL_URL}/swf/gamedata/furnidata.xml';
+\$_CONFIG['hotel']['swf_folder'] = '${HOTEL_URL}/swf/gordon/PRODUCTION-201701242205-837386173';
 
 \$_CONFIG['template']['style'] = 'habbologic';
 \$_CONFIG['thehabbos']['username'] = '';
@@ -90,8 +107,8 @@ EOF
 done
 
 # Dynamic host injection in external_variables
-find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|localhost/swf|${HOST_IP}:${WEB_PORT}/swf|g" {} + || true
-find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|http://localhost/|http://${HOST_IP}:${WEB_PORT}/|g" {} + || true
+find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|localhost/swf|${CLIENT_HOST}:${WEB_PORT}/swf|g" {} + || true
+find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|http://localhost/|${HOTEL_URL}/|g" {} + || true
 
 echo "[*] Starting Apache..."
 exec apache2-foreground

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -e
 
 echo "[*] Havana (v31) Web starting..."
@@ -15,11 +15,22 @@ DB_USER="${DB_USER:-root}"
 DB_PASS="${DB_PASS:-${MYSQL_ROOT_PASSWORD:-habboroot}}"
 DB_NAME="${DB_NAME:-v31}"
 
-if [ "${PORT_V31_WEB}" = "80" ]; then
+# Easypanel & HTTPS Support
+if [ -n "${SITE_URL}" ]; then
+  :
+elif [ -n "${PRIMARY_DOMAIN}" ]; then
+  SITE_URL="https://${PRIMARY_DOMAIN}"
+elif [ "${PORT_V31_WEB}" = "80" ] || [ "${PORT_V31_WEB}" = "443" ]; then
   SITE_URL="http://${HOST_IP}"
 else
   SITE_URL="http://${HOST_IP}:${PORT_V31_WEB}"
 fi
+
+CLIENT_HOST="${CLIENT_HOST:-${HOST_IP:-${PRIMARY_DOMAIN}}}"
+CLIENT_HOST="${CLIENT_HOST#http://}"
+CLIENT_HOST="${CLIENT_HOST#https://}"
+CLIENT_HOST="${CLIENT_HOST%%/*}"
+CLIENT_HOST="${CLIENT_HOST%%:*}"
 
 echo "[*] Waiting for Database at ${DB_HOST}:${DB_PORT}..."
 while ! nc -z "${DB_HOST}" "${DB_PORT}"; do
@@ -64,9 +75,9 @@ INSERT INTO settings (setting, value) VALUES
   ('site.name', 'Habbo'),
   ('site.path', '${SITE_URL}'),
   ('static.content.path', '${SITE_URL}'),
-  ('loader.game.ip', '${HOST_IP}'),
+  ('loader.game.ip', '${CLIENT_HOST}'),
   ('loader.game.port', '${PORT_V31_GAME}'),
-  ('loader.mus.ip', '${HOST_IP}'),
+  ('loader.mus.ip', '${CLIENT_HOST}'),
   ('loader.mus.port', '${PORT_V31_MUS}'),
   ('loader.dcr', '${SITE_URL}/dcr/v31/habbo.dcr?'),
   ('loader.external.variables', '${SITE_URL}/dcr/v31/gamedata/external_variables.txt?'),
