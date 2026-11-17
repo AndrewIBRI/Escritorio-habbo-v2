@@ -5,10 +5,10 @@ services:
     restart: unless-stopped
     command: --character-set-server=latin1 --collation-server=latin1_swedish_ci --sql-mode=""
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-HabboRoot_9csibYIFT59PrBPOfLxZmYTu}
       MYSQL_DATABASE: r63c
       MYSQL_USER: ${MYSQL_USER:-habbo}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-habbopass}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-HabboUser_0kh9qhJkhYI0Klk444U45VjA}
     ports:
       - "${PORT_R63C_DB:-33066}:3306"
     volumes:
@@ -27,9 +27,11 @@ services:
       DB_HOST: r63c-db
       DB_PORT: 3306
       DB_USER: root
-      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-HabboRoot_9csibYIFT59PrBPOfLxZmYTu}
       DB_NAME: r63c
       HOST_IP: ${HOST_IP:-127.0.0.1}
+      PRIMARY_DOMAIN: ${PRIMARY_DOMAIN:-}
+      CLIENT_HOST: ${CLIENT_HOST:-}
       PORT_R63C_GAME: ${PORT_R63C_GAME:-30300}
       PORT_R63C_MUS: ${PORT_R63C_MUS:-30301}
     ports:
@@ -50,14 +52,17 @@ services:
       DB_HOST: r63c-db
       DB_PORT: 3306
       DB_USER: root
-      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-HabboRoot_9csibYIFT59PrBPOfLxZmYTu}
       DB_NAME: r63c
       HOST_IP: ${HOST_IP:-127.0.0.1}
-      PORT_R63C_WEB: ${PORT_R63C_WEB:-8064}
+      PRIMARY_DOMAIN: ${PRIMARY_DOMAIN:-}
+      SITE_URL: ${SITE_URL:-}
+      CLIENT_HOST: ${CLIENT_HOST:-}
+      PORT_R63C_WEB: ${PORT_R63C_WEB:-80}
       PORT_R63C_GAME: ${PORT_R63C_GAME:-30300}
       PORT_R63C_MUS: ${PORT_R63C_MUS:-30301}
     ports:
-      - "${PORT_R63C_WEB:-8064}:80"
+      - "${PORT_R63C_WEB:-80}:80"
     depends_on:
       - r63c-db
     networks:
