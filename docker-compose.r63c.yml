@@ -58,11 +58,11 @@ services:
       PRIMARY_DOMAIN: ${PRIMARY_DOMAIN:-}
       SITE_URL: ${SITE_URL:-}
       CLIENT_HOST: ${CLIENT_HOST:-}
-      PORT_R63C_WEB: ${PORT_R63C_WEB:-80}
+      PORT_R63C_WEB: ${PORT_R63C_WEB:-8064}
       PORT_R63C_GAME: ${PORT_R63C_GAME:-30300}
       PORT_R63C_MUS: ${PORT_R63C_MUS:-30301}
     ports:
-      - "${PORT_R63C_WEB:-80}:80"
+      - "${PORT_R63C_WEB:-8064}:80"
     depends_on:
       - r63c-db
     networks:
