@@ -14,8 +14,6 @@ services:
     volumes:
       - ./docker/r63c/sql/r63c.sql:/docker-entrypoint-initdb.d/01-r63c.sql:ro
       - r63c-db-data-v2:/var/lib/mysql
-    networks:
-      - habbo-r63c-net
 
   r63c-emulator:
     build:
@@ -39,8 +37,6 @@ services:
       - "${PORT_R63C_MUS:-30301}:${PORT_R63C_MUS:-30301}"
     depends_on:
       - r63c-db
-    networks:
-      - habbo-r63c-net
 
   r63c-web:
     build:
@@ -66,17 +62,12 @@ services:
     depends_on:
       - r63c-db
     networks:
-      habbo-r63c-net:
+      default:
         aliases:
           - server_flow-hotel
           - flow-hotel
           - r63c-web
           - habbo-r63c-web
-
-networks:
-  habbo-r63c-net:
-    name: habbo-r63c-network
-    driver: bridge
 
 volumes:
   r63c-db-data-v2:
