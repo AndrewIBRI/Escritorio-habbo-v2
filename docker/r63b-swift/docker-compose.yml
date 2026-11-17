@@ -1,0 +1,73 @@
+services:
+  r63b-swift-db:
+    image: mariadb:10.5
+    container_name: habbo-r63b-swift-db
+    restart: unless-stopped
+    command: --character-set-server=latin1 --collation-server=latin1_swedish_ci --sql-mode=""
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      MYSQL_DATABASE: r63b
+      MYSQL_USER: ${MYSQL_USER:-habbo}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-habbopass}
+    ports:
+      - "${PORT_R63B_SWIFT_DB:-33065}:3306"
+    volumes:
+      - ./sql/r63b_swift.sql:/docker-entrypoint-initdb.d/01-r63b_swift.sql:ro
+      - r63b-swift-db-data:/var/lib/mysql
+    networks:
+      - habbo-r63b-swift-net
+
+  r63b-swift-emulator:
+    build:
+      context: ../..
+      dockerfile: docker/r63b-swift/emulator/Dockerfile
+    container_name: habbo-r63b-swift-emulator
+    restart: unless-stopped
+    environment:
+      DB_HOST: r63b-swift-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: r63b
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_R63B_SWIFT_WEB: ${PORT_R63B_SWIFT_WEB:-8063}
+      PORT_R63B_SWIFT_GAME: ${PORT_R63B_SWIFT_GAME:-30200}
+      PORT_R63B_SWIFT_MUS: ${PORT_R63B_SWIFT_MUS:-30201}
+    ports:
+      - "${PORT_R63B_SWIFT_GAME:-30200}:${PORT_R63B_SWIFT_GAME:-30200}"
+      - "${PORT_R63B_SWIFT_MUS:-30201}:${PORT_R63B_SWIFT_MUS:-30201}"
+    depends_on:
+      - r63b-swift-db
+    networks:
+      - habbo-r63b-swift-net
+
+  r63b-swift-web:
+    build:
+      context: ../..
+      dockerfile: docker/r63b-swift/web/Dockerfile
+    container_name: habbo-r63b-swift-web
+    restart: unless-stopped
+    environment:
+      DB_HOST: r63b-swift-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: r63b
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_R63B_SWIFT_WEB: ${PORT_R63B_SWIFT_WEB:-8063}
+      PORT_R63B_SWIFT_GAME: ${PORT_R63B_SWIFT_GAME:-30200}
+      PORT_R63B_SWIFT_MUS: ${PORT_R63B_SWIFT_MUS:-30201}
+    ports:
+      - "${PORT_R63B_SWIFT_WEB:-8063}:80"
+    depends_on:
+      - r63b-swift-db
+    networks:
+      - habbo-r63b-swift-net
+
+networks:
+  habbo-r63b-swift-net:
+    name: habbo-r63b-swift-network
+    driver: bridge
+
+volumes:
+  r63b-swift-db-data:

@@ -1,0 +1,26 @@
+2026-02-17T21:41:58.086 - [org.alexdev.havana.Havana] - Starting Havana...
+2026-02-17T21:41:58.090 - [org.alexdev.havana.dao.Storage] - Connecting to MySQL server
+2026-02-17T21:41:58.127 - [com.zaxxer.hikari.HikariDataSource] - processing - Starting...
+2026-02-17T21:41:58.304 - [com.zaxxer.hikari.HikariDataSource] - processing - Start completed.
+2026-02-17T21:41:58.305 - [org.alexdev.havana.dao.Storage] - Connection to MySQL was a success
+2026-02-17T21:41:58.394 - [org.alexdev.havana.Havana] - Setting up game
+2026-02-17T21:41:58.704 - [org.alexdev.havana.game.commands.CommandManager] - Loaded 39 commands
+2026-02-17T21:41:59.434 - [org.alexdev.havana.server.rcon.RconServer] - RCON (remote connection) is listening on 127.0.0.1:12309
+2026-02-17T21:41:59.458 - [org.alexdev.havana.server.mus.MusServer] - Multi User Server (MUS) is listening on 127.0.0.1:12322
+2026-02-17T21:41:59.482 - [org.alexdev.havana.server.netty.NettyServer] - Shockwave game server is listening on 0.0.0.0:12321
+2026-02-17T21:41:59.491 - [org.alexdev.havana.server.netty.NettyServer] - Flash game server is listening on 0.0.0.0:12323
+2026-02-17T21:45:09.667 - [com.zaxxer.hikari.pool.PoolBase] - processing - Failed to validate connection org.mariadb.jdbc.MariaDbConnection@2ed2d757 (Connection.setNetworkTimeout cannot be called on a closed connection). Possibly consider using a shorter maxLifetime value.
+2026-02-17T21:45:09.671 - [com.zaxxer.hikari.pool.PoolBase] - processing - Failed to validate connection org.mariadb.jdbc.MariaDbConnection@54f5a145 (Connection.setNetworkTimeout cannot be called on a closed connection). Possibly consider using a shorter maxLifetime value.
+2026-02-17T21:48:18.703 - [org.alexdev.havana.Havana] - Starting Havana...
+2026-02-17T21:48:18.706 - [org.alexdev.havana.dao.Storage] - Connecting to MySQL server
+2026-02-17T21:48:18.730 - [com.zaxxer.hikari.HikariDataSource] - processing - Starting...
+2026-02-17T21:48:18.821 - [com.zaxxer.hikari.HikariDataSource] - processing - Start completed.
+2026-02-17T21:48:18.821 - [org.alexdev.havana.dao.Storage] - Connection to MySQL was a success
+2026-02-17T21:48:18.847 - [org.alexdev.havana.Havana] - Setting up game
+2026-02-17T21:48:19.070 - [org.alexdev.havana.game.commands.CommandManager] - Loaded 39 commands
+2026-02-17T21:48:19.591 - [org.alexdev.havana.server.rcon.RconServer] - RCON (remote connection) is listening on 127.0.0.1:12309
+2026-02-17T21:48:19.608 - [org.alexdev.havana.server.mus.MusServer] - Multi User Server (MUS) is listening on 127.0.0.1:12322
+2026-02-17T21:48:19.626 - [org.alexdev.havana.server.netty.NettyServer] - Shockwave game server is listening on 0.0.0.0:12321
+2026-02-17T21:48:19.627 - [org.alexdev.havana.server.netty.NettyServer] - Flash game server is listening on 0.0.0.0:12323
+2026-02-17T21:50:28.013 - [com.zaxxer.hikari.pool.PoolBase] - processing - Failed to validate connection org.mariadb.jdbc.MariaDbConnection@5e6404e2 (Connection.setNetworkTimeout cannot be called on a closed connection). Possibly consider using a shorter maxLifetime value.
+2026-02-17T21:50:28.016 - [com.zaxxer.hikari.pool.PoolBase] - processing - Failed to validate connection org.mariadb.jdbc.MariaDbConnection@5b3c99d (Connection.setNetworkTimeout cannot be called on a closed connection). Possibly consider using a shorter maxLifetime value.

@@ -1,0 +1,72 @@
+services:
+  r63c-db:
+    image: mariadb:10.5
+    container_name: habbo-r63c-db
+    restart: unless-stopped
+    command: --character-set-server=latin1 --collation-server=latin1_swedish_ci --sql-mode=""
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      MYSQL_DATABASE: r63c
+      MYSQL_USER: ${MYSQL_USER:-habbo}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-habbopass}
+    ports:
+      - "${PORT_R63C_DB:-33066}:3306"
+    volumes:
+      - ./sql/r63c.sql:/docker-entrypoint-initdb.d/01-r63c.sql:ro
+      - r63c-db-data:/var/lib/mysql
+    networks:
+      - habbo-r63c-net
+
+  r63c-emulator:
+    build:
+      context: ../..
+      dockerfile: docker/r63c/emulator/Dockerfile
+    container_name: habbo-r63c-emulator
+    restart: unless-stopped
+    environment:
+      DB_HOST: r63c-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: r63c
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_R63C_GAME: ${PORT_R63C_GAME:-30300}
+      PORT_R63C_MUS: ${PORT_R63C_MUS:-30301}
+    ports:
+      - "${PORT_R63C_GAME:-30300}:${PORT_R63C_GAME:-30300}"
+      - "${PORT_R63C_MUS:-30301}:${PORT_R63C_MUS:-30301}"
+    depends_on:
+      - r63c-db
+    networks:
+      - habbo-r63c-net
+
+  r63c-web:
+    build:
+      context: ../..
+      dockerfile: docker/r63c/web/Dockerfile
+    container_name: habbo-r63c-web
+    restart: unless-stopped
+    environment:
+      DB_HOST: r63c-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: r63c
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_R63C_WEB: ${PORT_R63C_WEB:-8064}
+      PORT_R63C_GAME: ${PORT_R63C_GAME:-30300}
+      PORT_R63C_MUS: ${PORT_R63C_MUS:-30301}
+    ports:
+      - "${PORT_R63C_WEB:-8064}:80"
+    depends_on:
+      - r63c-db
+    networks:
+      - habbo-r63c-net
+
+networks:
+  habbo-r63c-net:
+    name: habbo-r63c-network
+    driver: bridge
+
+volumes:
+  r63c-db-data:

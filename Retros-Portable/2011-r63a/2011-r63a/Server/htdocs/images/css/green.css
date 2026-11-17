@@ -1,0 +1,12 @@
+#header-container {
+	background-color: rgb(58, 165, 58);
+}
+.navi {
+	background-color: #3bb367;
+}
+.navi li {
+	background: #3bb367;
+}
+.navi li:hover{
+	background: #46c773;
+}

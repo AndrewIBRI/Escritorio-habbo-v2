@@ -1,0 +1,151 @@
+@charset "UTF-8";
+/* CSS Document */
+/* DESIGNED & CODED BY ITSJASON OF CLUBHABBOFORUM */
+
+html, body {	
+	background-image: url("../imagess/background.png");	
+	background-repeat: repeat;	
+	background-color:#FFFFFF;	
+	font-family: Verdana;	
+	font-size: 10px;	
+	color: #9d9d9d;	
+	margin: 0 auto;
+}
+
+A { text-decoration: none; font-weight: bold; color: #FFFFFF; }
+img { border: none; }
+
+img{	
+	border: none;
+}
+
+div#wrapper{	
+	width: 527px;	
+	height: auto;	
+	margin: 0 auto;
+}
+	
+div#header{				
+	background-image: url("../imagess/header.png");			
+	background-repeat: no-repeat;				
+	width: 527px;			
+	height: 97px;	
+	float: left;								
+}
+
+div#navigation{				
+	background-image: url("../imagess/navigation.png");			
+	background-repeat: no-repeat;				
+	width: 527px;			
+	height: 35px;
+	margin-top: 2px;
+	float: left;								
+}
+
+div#boxtop{				
+	background-image: url("../imagess/boxtop.png");			
+	background-repeat: no-repeat;				
+	width: 527px;			
+	height: 3px;
+	margin-top: 2px;		
+	float: left;						
+}
+
+div#boxsides{				
+	background-image: url("../imagess/boxsides.png");			
+	background-repeat: repeat-y;				
+	width: 527px;			
+	height: auto;
+	float: left;								
+}
+
+div#box1{				
+	background-image: url("../imagess/box1.png");			
+	background-repeat: no-repeat;				
+	width: 120px;			
+	height: 66px;		
+	float: left;	
+	margin-top: 4px;
+	margin-left: 53px;				
+}
+
+div#box2{				
+	background-image: url("../imagess/box2.png");			
+	background-repeat: no-repeat;				
+	width: 120px;			
+	height: 66px;		
+	float: left;
+	margin-top: 4px;	
+	margin-left: 28px;					
+}
+
+div#box3{				
+	background-image: url("../imagess/box3.png");			
+	background-repeat: no-repeat;				
+	width: 120px;			
+	height: 66px;		
+	float: left;		
+	margin-top: 4px;	
+	margin-left: 29px;		
+}
+
+div#boxbot{				
+	background-image: url("../imagess/boxbot.png");			
+	background-repeat: no-repeat;				
+	width: 527px;			
+	height: 9px;		
+	float: left;				
+}
+
+div#wboxsides{				
+	background-image: url("../imagess/wboxsides.png");			
+	background-repeat: repeat-y;				
+	width: 517px;			
+	height: auto;
+	float: left;	
+	padding: 5px;							
+}
+
+div#wboxbot{				
+	background-image: url("../imagess/wboxbot.png");			
+	background-repeat: no-repeat;				
+	width: 527px;			
+	height: 40px;		
+	float: left;	
+	padding: 14px 25px; 0 0;	
+	color: #FFFFFF;
+		
+}
+
+div#home{				
+	background-image: url("../imagess/home.png");			
+	background-repeat: no-repeat;				
+	width: 82px;			
+	height: 35px;		
+	float: left;	
+	margin-left: 3px;			
+}
+
+div#home:hover{				
+	background-image: url("../imagess/homehover.png");			
+	background-repeat: no-repeat;				
+	width: 82px;			
+	height: 35px;		
+	float: left;				
+}
+
+div#job{				
+	background-image: url("../imagess/job.png");			
+	background-repeat: no-repeat;				
+	width: 148px;			
+	height: 35px;		
+	float: left;				
+}
+
+div#job:hover{				
+	background-image: url("../imagess/jobhover.png");			
+	background-repeat: no-repeat;				
+	width: 148px;			
+	height: 35px;		
+	float: left;				
+}

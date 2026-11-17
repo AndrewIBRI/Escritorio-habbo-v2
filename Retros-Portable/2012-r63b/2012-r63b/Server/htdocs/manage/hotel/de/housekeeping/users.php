@@ -1,0 +1,125 @@
+<?php
+
+if($user_rank > 4){
+
+if($hkzone !== true){ header("Location: index.php?throwBack=true"); exit; }
+if(!session_is_registered(acp)){ header("Location: index.php?p=login"); exit; }
+
+$pagename = "Usuarios";
+$pageid = "users";
+
+$posts = mysql_evaluate("SELECT COUNT(*) FROM USERS");
+$pages = ceil(($posts + 0) / 50);
+
+if($page > $pages || $page < 1){
+	$page = 1;
+}
+
+if($_POST['site']){
+	header("location: ".$adminpath."/index/p/users&page=".$_POST['page']."");
+}
+
+if($_POST['site2']){
+	header("location: ".$adminpath."/index/p/users&page=".$_POST['page2']."");
+}
+
+$users_today = mysql_evaluate("SELECT COUNT(*) FROM users WHERE account_created > '".strtotime("today")."'");
+$users_yesterday = mysql_evaluate("SELECT COUNT(*) FROM users WHERE account_created > '".strtotime("yesterday")."' && account_created < '".strtotime("today")."'");
+
+$zwischenround = round(100 / $users_yesterday * $users_today);
+
+if($users_today < $users_yesterday){
+	$rounded = 100 - $zwischenround;
+} else { 
+	$rounded = $zwischenround - 100;
+}	
+
+if($users_today < $users_yesterday){
+	$icon = "-";
+	$color = "red";
+} elseif($users_today == $users_yesterday){ 
+	$icon = "+-";
+	$color = "gray";
+} else {
+	$icon = "+";
+	$color = "green";
+}
+
+$header = "".mysql_evaluate("SELECT COUNT(*) FROM users")." Usuarios registrado</div><center>Registrados - (Hoy): ".$users_today." | (Ayer): ".$users_yesterday." = <font color=\"".$color."\">".$icon."".$rounded."%</font>";
+@include('subheader.php');
+
+?>
+
+<form action='<?php echo $adminpath; ?>/index/p/users&do=save' method='post' name='theAdminForm' id='theAdminForm'>
+
+<div class='tableborder'>
+<div class='tableheaderalt'><div style="float: left"><?php echo $header; ?>
+
+<select name="page">
+<?php for ($i = 1; $i <= $pages; $i++){ ?>
+	<option value="<?php echo $i; ?>"<?php if($i == $page){ echo' selected="selected"'; } ?>><?php echo $i; ?></option>
+<?php } ?>
+</select>
+
+<input type="submit" name="site" value="M&aacute;s »">
+</div>
+
+<table cellpadding='4' cellspacing='0' width='100%'>
+ <tr>
+  <td class='tablesubheader' width='1%' align='center'>ID</td>
+  <td class='tablesubheader' width='5%'>Nombre</td>
+  <td class='tablesubheader' width='5%'>IP - &Uacute;ltima</td>	
+  <td class='tablesubheader' width='5%'>IP - Registro</td>
+  <td class='tablesubheader' width='10%'>Fecha de registro</td>
+  <td class='tablesubheader' width='10%'>&Uacute;ltima vez conectado</td>
+  <td class='tablesubheader' width='1%'>Estado</td>
+  <td class='tablesubheader' width='1%'>Editar</td>
+ </tr>
+
+<?php
+
+$query_min = ($page * 50) - 50;
+
+if($query_min < 0){ 
+	$query_min = 0;
+}
+
+$get_users = mysql_query("SELECT * FROM users ORDER BY id ASC LIMIT ".$query_min.", 50") or die(mysql_error());
+while($row = mysql_fetch_assoc($get_users)){
+
+if($row['online'] == '0'){ $status = 'offline'; }else{ $status = 'online'; }
+
+?>
+     
+ <tr>
+  <td class='tablerow1' align='center'><?php echo $row['id']; ?></td>
+  <td class='tablerow2'><strong><?php echo $row['username']; ?></strong></td>
+  <td class='tablerow2' align='left'><?php echo $row['ip_last']; ?>  [<a href='http://who.is/whois-ip/ip-address/<?php echo $row['ip_last']; ?>/' target='_blank'>WHOIS</a>]</td>
+  <td class='tablerow2' align='left'><?php echo $row['ip_reg']; ?>  [<a href='http://who.is/whois-ip/ip-address/<?php echo $row['ip_reg']; ?>/' target='_blank'>WHOIS</a>]</td>  
+  <td class='tablerow2' align='left'><?php echo date('d.m.Y - H:i:s', $row['account_created']); ?></td>
+  <td class='tablerow2' align='left'><?php echo date('d.m.Y - H:i:s', $row['last_online']); ?></td>
+  <td class='tablerow1' align='center'><img src="<?php echo $path; ?>/web-gallery/v2/images/<?php echo $status; ?>.gif"></td>
+  <td class='tablerow2' align='center'><a href='<?php echo $adminpath; ?>/index/p/users_edit&key=<?php echo $row['id']; ?>'><img src='./images/edit.gif' alt='Editar usuarios'></a></td>
+ </tr>
+
+<?php } ?>
+</table>
+
+<div class='tableborder'>
+<div class='tableheaderalt'><div style="float: left"><?php echo $header; ?>
+
+<select name="page2">
+<?php for ($i = 1; $i <= $pages; $i++){ ?>
+	<option value="<?php echo $i; ?>"<?php if($i == $page){ echo' selected="selected"'; } ?>><?php echo $i; ?></option>
+<?php } ?>
+</select>
+
+<input type="submit" name="site2" value="M&aacute;s »">
+</div>
+
+</div>
+</div>
+
+</table></div></div></div></div>
+
+<?php require_once('footer.php'); } else { require_once('error.php'); exit; } ?>

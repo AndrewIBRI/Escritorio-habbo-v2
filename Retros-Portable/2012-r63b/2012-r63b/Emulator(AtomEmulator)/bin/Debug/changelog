@@ -1,0 +1,8 @@
+CHANGELOG 31/07/2012
+- Fixed a bug when pick ticket issues (moderation tool)
+- Fixed bugs on vending machines
+- Fixed some handitems
+- Added give/remove handitem option
+- Added scores by competition
+- Added command :givescore
+- Added a filter to maxrequest on connect (client.maxrequest)

@@ -1,0 +1,148 @@
+#contentBox {
+padding: 5px;
+background: white;
+border: 1px solid #ADADAD;
+border-bottom: 2px solid #ADADAD;
+border-radius: 3px;
+margin: 10px 0 0 0;
+}
+#contentBox.left {
+width: 440px;
+}
+#breadCrumb {
+float: left;
+line-height: 30px;
+margin: -3px 0 0 3px;
+}
+#breadCrumb.first {
+margin: -3px 0 0 0;
+}
+#breadArrow {
+background: url(http://habbo.ac/images/Arrow.png);
+height: 30px;
+width: 10px;
+float: right;
+}
+#breadCrumb a {
+padding: 0 5px;
+color:#808080;
+text-decoration:none;
+text-shadow: 0.1em 0.1em white;
+}
+#breadCrumb a:hover {
+text-decoration:underline;
+}
+#forumList {
+margin: 10px 0 0 5px;
+width: 160px;
+height: 62px;
+float: left;
+}
+#slickContent.hotCamp {
+height: 90px;
+margin-top: 10px;
+}
+#forumList.general {
+background: url(http://swf.habjoy.com/Images/hot_campaign_images_hq/hot_campaign_button_160x60_AUHotel.gif) no-repeat;
+}
+#slickTitle.hotCampaign {
+margin: 22px 5px 0 0;
+width: 260px;
+text-indent: 10px;
+color: #666;
+text-shadow: 0.1em 0.1em white;
+}
+#slickTitle a {
+color: #666;
+text-decoration: none;
+font-weight: bold;
+font-family: Arial !important;
+font-size: 13px;
+text-shadow: none;
+}
+#slickTitle span {
+float: right;
+margin-right: 8px;
+text-decoration: none;
+}
+#slickTitle {
+background: #EBEBEB url(http://habbo.ac/images/buttonbg.png);
+height: 34px;
+border-radius: 3px;
+border: 1px solid #CCC;
+line-height: 34px;
+float: right;
+}
+#slickDiv {
+margin-top: 5px;
+border-top: 1px dashed #999;
+}
+#userAvatar {
+float: left;
+width: 75px;
+height: 70px;
+margin-top: -10px;
+margin-left: -10px;
+margin-bottom: 10px;
+}
+#forumStar {
+width: 17px;
+height: 15px;
+background: url(http://habbo.ac/img/forumStar.png) -17px 0;
+position: absolute;
+float: right;
+margin: 28px 0 0 560px;
+}
+#slickTitle.forumThreads {
+margin: 18px 30px 0 0;
+width: 345px;
+text-indent: 10px;
+text-align: left;
+color: #666;
+text-shadow: 0.1em 0.1em white;
+}
+#slickTitle.forumThreads1 {
+margin: 18px 30px 0 0;
+width: 630px;
+text-indent: 10px;
+text-align: left;
+color: #666;
+text-shadow: 0.1em 0.1em white;
+}
+#saveButton {
+float: right;
+height: 32px;
+line-height: 32px;
+font-family: Arial !important;
+font-size: 12px;
+font-weight: bold;
+border: 0;
+margin: 15px 0 0 0;
+background: #51942F;
+color: white;
+padding: 0 16px;
+border-radius: 2px;
+cursor: pointer;
+}
+#slickContent {
+border-bottom: 1px dashed #999;
+}
+#inputAccount {
+color: #B3B3B3;
+height: 32px;
+width: 100%;
+border-radius: 2px;
+border: 1px solid #CECECE;
+text-indent: 8px;
+}
+#inputDiv.topDiv {
+border-top: 1px dashed #999;
+margin: 0 0 0 0;
+}
+#inputDiv label {
+margin: 8px 0 -8px 0;
+display: block;
+}
+#slickDiv.forumComment {
+margin-bottom: 5px;
+}

@@ -1,0 +1,63 @@
+["s","4436","water_bowl1*1","39635","2","1","1","#ff3f3f,#ffffff,#ffffff","waterbowl1_red name","waterbowl1_red desc","","-1","-1","","1"],
+["s","4437","water_bowl1*2","39635","2","1","1","#3fff3f,#ffffff,#ffffff","water_bowl1_green name","water_bowl1_green desc","","-1","-1","","1"],
+["s","4438","water_bowl1*3","39635","2","1","1","#ffff00,#ffffff,#ffffff","water_bowl1_yellow name","water_bowl1_yellow desc","","-1","-1","","1"],
+["s","4439","water_bowl1*4","39635","2","1","1","#0099ff,#ffffff,#ffffff","waterbowl1_blue name","waterbowl1_blue desc","","-1","-1","","1"],
+["s","4440","water_bowl1*5","39635","2","1","1","#bf7f00,#ffffff,#ffffff","water_bowl1_brown name","water_bowl1_brown desc","","-1","-1","","1"],
+["s","4441","nest_with_egg","39635","0","1","1","","nest_with_egg name","nest_with_egg desc","","-1","-1","8 nest_chick","1"],
+["s","4442","present_firework","39635","0","1","1","","for testing purposes","for testing purposes","","-1","-1","fireworks_charge_01,10,7,10","1"],
+["s","4443","val12_hopper_3","39651","2","1","1","","Room Hopper Elevator","Love in an elevator...","","179751","10893","1,9","1"],
+["s","4444","cine_platform","39635","2","4","1","","cine_platform name","cine_platform desc","","-1","-1","0.64","1"],
+["s","4445","magazines","39635","0","1","1","","magazines name","magazines desc","","-1","-1","","1"],
+["s","4446","desk_junk","39635","0","1","1","","desk_junk name","desk_junk desc","","-1","-1","","1"],
+["s","4447","coffee_cup","39635","2","1","1","","coffee_cup name","coffee_cup desc","","-1","-1","","1"],
+["s","4448","bowl","39635","2","1","1","","bowl name","bowl desc","","-1","-1","","1"],
+["s","4449","bookpile","39635","0","1","1","","bookpile name","bookpile desc","","-1","-1","","1"],
+["s","4450","horse_saddle2","39635","2","1","1","","horse_saddle2 name","horse_saddle2 desc","","-1","-1","15 4 10 0 103","16"],
+["s","4451","horse_fin_flag","39635","4","1","1","","horse_fin_flag name","horse_fin_flag desc","","-1","-1","","1"],
+["s","4452","horse_track_fence_cor","39635","1","1","1","","horse_track_fence_cor name","horse_track_fence_cor desc","","-1","-1","","1"],
+["s","4453","obstacle_oxer","39635","4","2","3","","obstacle_oxer name","obstacle_oxer desc","","-1","-1","","1"],
+["s","4454","horse_track1","39635","4","2","2","","horse_track1 name","horse_track1 desc","","-1","-1","","1"],
+["s","4455","horse_track_fence","39635","0","1","1","","horse_track_fence name","horse_track_fence desc","","-1","-1","","1"],
+["s","4456","elmeri","39635","2","1","1","","elmeri name","elmeri desc","","-1","-1","","1"],
+["s","4457","petfood20","39635","0","1","1","","petfood20 name","petfood20 desc","","-1","-1","350,15,0","1"],
+["s","4458","elegrass1","39635","0","1","1","","elegrass1 name","elegrass1 desc","","-1","-1","0.5","1"],
+["s","4459","elerock1","39635","4","1","1","","elerock1 name","elerock1 desc","","-1","-1","0.5","1"],
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO `catalog_items` (`id`, `page_id`, `item_ids`, `catalog_name`, `cost_credits`, `cost_pixels`, `amount`) VALUES
+(30793, PageID, '30793', 'horse_track1', 0, 2, 1),
+(30794, PageID, '30794', 'obstacle_oxer', 0, 2, 1),
+(30795, PageID, '30795', 'horse_track_fence', 0, 2, 1),
+(30796, PageID, '30796', 'horse_track_fence_cor', 0, 2, 1),
+(30797, PageID, '30797', 'horse_sadle2', 0, 2, 1),
+(30798, PageID, '30798', 'horse_fin_flag', 0, 2, 1),
+(30799, PageID, '30799', 'elerock1', 0, 2, 1),
+(30800, PageID, '30800', 'elegrass1', 0, 2, 1),
+(30801, PageID, '30801', 'bookpile', 0, 2, 1),
+(30802, PageID, '30802', 'bowl', 0, 2, 1),
+(30803, PageID, '30803', 'coffee_cup', 0, 2, 1),
+(30804, PageID, '30804', 'desk_junk', 0, 2, 1),
+(30805, PageID, '30805', 'magazines', 0, 2, 1),
+(30806, PageID, '30806', 'val12_hopper_3', 0, 2, 1),
+(30807, PageID, '30807', 'elmeri', 0, 2, 1)
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO `furniture` (`id`, `public_name`, `item_name`, `type`, `width`, `length`, `stack_height`, `can_stack`, `can_sit`, `is_walkable`, `sprite_id`, `allow_recycle`, `allow_trade`, `allow_marketplace_sell`, `allow_gift`, `allow_inventory_stack`, `interaction_type`, `interaction_modes_count`, `vending_ids`) VALUES
+(30793, 'horse_track1', 'horse_track1', 's', 2, 2, 0.01, '1', '0', '1', 4454, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30794, 'obstacle_oxer', 'obstacle_oxer', 's', 2, 3, 0.01, '1', '0', '1', 4453, '1', '1', '0', '1', '1', 'default', 4, '0'),
+(30795, 'horse_track_fence', 'horse_track_fence', 's', 1, 1, 1, '0', '0', '0', 4455, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30796, 'horse_track_fence_cor', 'horse_track_fence_cor', 's', 1, 1, 1, '0', '0', '0', 4452, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30797, 'horse_saddle2', 'horse_saddle2', 's', 1, 1, 1, '0', '0', '0', 4450, '1', '1', '0', '1', '1', 'default', 1, '0'),
+(30798, 'horse_fin_flag', 'horse_fin_flag', 's', 1, 1, 1, '0', '0', '0', 4451, '1', '1', '0', '1', '1', 'default', 1, '0'),
+(30799, 'elerock1', 'elerock1', 's', 1, 1, 0.5, '1', '0', '1', 4459, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30800, 'elegrass1', 'elegrass1', 's', 1, 1, 0.5, '1', '0', '1', 4458, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30801, 'bookpile', 'bookpile', 's', 1, 1, 1, '1', '0', '0', 4449, '1', '1', '0', '1', '1', 'default', 1, '0'),
+(30802, 'bowl', 'bowl', 's', 1, 1, 1, '0', '0', '0', 4448, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30803, 'coffee_cup', 'coffee_cup', 's', 1, 1, 1, '1', '0', '0', 4447, '1', '1', '0', '1', '1', 'default', 1, '0'),
+(30804, 'desk_junk', 'desk_junk', 's', 1, 1, 0.3, '1', '0', '0', 4446, '1', '1', '0', '1', '1', 'default', 3, '0'),
+(30805, 'magazines', 'magazines', 's', 1, 1, 0.3, '1', '0', '0', 4445, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30806, 'val12_hopper_3', 'val12_hopper_3', 's', 1, 1, 0.01, '0', '0', '1', 4443, '1', '1', '0', '1', '1', 'default', 2, '0'),
+(30807, 'elmeri', 'elmeri', 's', 1, 1, 1, '0', '0', '0', 4456, '1', '1', '0', '1', '1', 'default', 1, '0');

@@ -1,0 +1,214 @@
+*:focus{
+    outline:0!important;
+    background-color:#f6f6f6!important;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-image: url(../bg.png);
+}
+.logo {
+	width: 170px;
+	height: 58px;
+	background-repeat: no-repeat;
+	background: url(../ggirl.png) no-repeat;
+	float:left;
+	margin-bottom: -50px;
+}
+.logo:hover{
+	width: 170px;
+	height: 58px;
+	border: 0;
+	background-repeat: no-repeat;
+	background: url(../ggirl.png) -169px 0 no-repeat;
+	float:left;
+	margin-bottom: -50px;
+}
+.allContent{
+	margin-top: 7.5%;
+	max-width: 900px;
+	min-width: 900px;
+}
+.registerContent{
+	background-color: rgba(181, 181, 181, 0.5);
+	border-radius:10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding:10px;
+	height:355px;
+	width:900px;
+	margin-top: 50px;
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+}
+.leftContent{
+	width:50%;
+	height:350px;
+	border-right: 2px dashed rgb(131, 131, 131);;
+	float:left;
+}
+.rightContent{
+	width:49%;
+	height:100%;
+	float:right;
+}
+.registerInput{
+	height: 36px;
+	line-height: 36px;
+	width: 100%;
+	margin-top: 4px;
+	border: 1px solid #999999;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	text-indent: 10px;
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+	-webkit-box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+}
+.inputContent{
+	padding-right: 10px;
+}
+label{
+	color: rgb(65, 65, 65);
+	font-weight: bold;
+	font-size: 12px !important;
+	font-family: Arial !important;
+}
+.floatLeft{
+	float:left;
+}
+.floatRight{
+	float:right;
+}
+.inputSection{
+	padding: 10px 0;
+	border-bottom: 1px dashed rgb(63, 63, 63);
+}
+.lookSelection{
+	border-bottom: 1px dashed rgb(63, 63, 63);
+	height: 170px;
+}
+.selectedAvatar{
+	background: transparent url(../registerStand.png) no-repeat bottom left;
+	height: 157px;
+	width: 106px;
+	float: left;
+	margin-top: 5px;
+	margin-left: 25px;
+	position: relative;
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.availableAvatars{
+	width: 245px;
+	float: right;
+}
+.avatarsMale{
+	margin-top: 10px;
+}
+.avatarsFemale{
+	margin-top: 90px;
+}
+.avatarBox{
+	background: #fff url(../buttonBackground.png) center;
+	width: 35px;
+	height: 61px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	float: left;
+	margin-right: 10px;
+	cursor: pointer;
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,.3);
+}
+.securityArea{
+	margin-top: 10px;
+}
+.captchaArea{
+	float:left;
+}
+.captchaInfo{
+	float:right;
+	font-weight: bold;
+	font-size: 12px!important;
+	font-family: Arial!important;
+	margin-top: 20px;
+	color: rgb(65,65,65);
+}
+.registerButton {
+	background-repeat: no-repeat;
+	background: #51942F url(../buttonBackground.png) center;
+	height: 39px;
+	line-height: 29px;
+	padding: 0;
+	width: 100px;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	text-indent: 0;
+	margin-right: 0;
+	cursor: pointer;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 2px solid rgba(0,0,0,.2);
+	float:right;
+	margin-top: 20px;
+	transition: background .5s ease-in-out;
+	-moz-transition: background .5s ease-in-out;
+	-webkit-transition: background .5s ease-in-out;
+	-o-transition: background .5s ease-in-out;
+}
+.registerButton:hover{
+	background-color: #61AD37;
+}
+.cancelButton{
+	background-repeat: no-repeat;
+	background: rgb(155, 0, 0) url(../buttonBackground.png) center;
+	height: 39px;
+	line-height: 29px;
+	padding: 0;
+	width: 100px;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	text-indent: 0;
+	margin-right: 0;
+	cursor: pointer;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 2px solid rgba(0,0,0,.2);
+	float:left;
+	margin-top: 20px;
+	transition: background .5s ease-in-out;
+	-moz-transition: background .5s ease-in-out;
+	-webkit-transition: background .5s ease-in-out;
+	-o-transition: background .5s ease-in-out;
+}
+.cancelButton:hover{
+	background-color: rgb(187, 1, 1);
+}
+.selected_avatar_display{
+	margin-top: 10px;
+}
+.error{
+	background-color: rgba(255, 0, 0, 0.63);
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	margin-left: 52%;
+	height:40px;
+	padding:5px;
+	margin-bottom:-50px;
+	color:#FFF;
+	font-weight: bold;
+	line-height: 40px;
+	float:right;
+	box-shadow: inset 0 0 2px 2px rgba(0,0,0,.2);
+	text-shadow: .18em .18em 0 rgba(0,0,0,.1);
+}

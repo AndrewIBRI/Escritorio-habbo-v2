@@ -1,0 +1,21 @@
+*{margin:0px; padding:0px}
+body{background:url(/web-gallery/v2/images/bg_v3.0.png);font-family:Verdana, Geneva, sans-serif; font-size:12px;}
+
+#wrapper{width:703px; margin:25px auto;}
+#topo{width:703px; height:180px; background:url(_img/topo.png);}
+#conteudo{width:701px; background:#FFF; border-left:#787878 solid 1px; border-right:#787878 solid 1px; border-bottom:#787878 solid 1px;}
+#box_texto{width:690px; margin:auto; padding:20px;}
+h1{color:#668c9c; font-size:20px; font-weight:normal; margin-bottom:5px;}
+#divisor{background:#dcdcdc; width:650px; height:1px; margin-bottom:5px;}
+#mini_fotos{width:660px; height:121px; margin:auto; background:url(_img/minifotos.png);}
+#creditos{width:703px; font-size:11px; margin:10px auto; text-align:center;}
+
+#box_login{width:160px; height:128px; margin-top:-145px; float:left;  margin-left:535px;}
+input[type="password"], input[type="text"], select, textarea {margin-bottom:3px;width:145px;height:20px; font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; color:#999; padding:5px;
+  background: -moz-linear-gradient(bottom, #f2f2f2, #fff); background: -webkit-gradient(linear, center bottom, center top, from(#f2f2f2), to(#fff));  border:1px solid #ACACAC; 
+   
+}
+
+   input[type="password"]:hover, input[type="text"]:hover, select:hover, textarea:hover {height:20px; font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; color:#999; padding:5px;
+	background: -moz-linear-gradient(bottom, #f2f2f2, #fff); background: -webkit-gradient(linear, center bottom, center top, from(#f2f2f2), to(#fff));  border:1px solid #ACACAC;
+   }

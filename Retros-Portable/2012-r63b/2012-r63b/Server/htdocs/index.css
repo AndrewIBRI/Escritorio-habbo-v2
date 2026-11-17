@@ -1,0 +1,141 @@
+/* ::::: KrzDark Drew (lD@vidl) - KFC ::::: */
+
+img, div, input {  }
+body { padding: 0pt; margin: 0pt; font-family: 'Helvetica Neue',Helvetica,Arial; font-size: 13px; background: url('/images/pattern.png') repeat scroll left top rgb(220, 220, 220); }
+.big-plans .plan-hosting h2 { background: url('/images/title_hosting.png') no-repeat scroll center 13px transparent; text-indent: -99999px; height: 30px; margin: 0pt; padding: 0pt; }
+.big-plans .plan-reseller h2 { background: url('/images/title_resellers.png') no-repeat scroll center 13px transparent; text-indent: -99999px; height: 30px; margin: 0pt; padding: 0pt; }
+.big-plans .plan-dedicados h2 { background: url('/images/title_vps.png') no-repeat scroll center 13px transparent; text-indent: -99999px; height: 30px; margin: 0pt; padding: 0pt; }
+ul { margin: 0pt; padding: 0pt; list-style: none outside none; }
+h1, h2, h3, h4, h5, h6 { margin: 0pt; }
+a { cursor: pointer; }
+input { font-family: 'Helvetica Neue',Helvetica,Arial; }
+.floatL { float: left; }
+.floatR { float: right; }
+.clearfix:after { visibility: hidden; display: block; font-size: 0pt; content: " "; clear: both; height: 0pt; }
+:first-child + html .clearfix {  }
+.wrapper { width: 780px; margin: 0pt auto; position: relative; }
+#header { background: url('/images/bg-header.gif') repeat-x scroll left top rgb(27, 26, 26); padding: 20px 0pt 0pt; }
+#content { z-index: 10; position: relative; }
+#content .wrapper { padding: 0pt 30px; width: 740px; background: url('/images/bg-content.png') repeat-y scroll center top transparent; }
+#content .main { float: left; width: 495px; }
+#content .sidebar { float: left; width: 245px; }
+h1#logo { width: 160px; height: 80px; background: url('/images/logo.png') no-repeat scroll 0% 0% transparent; display: block; text-indent: -99999px; margin-bottom: 20px; float: left; }
+#header .upper-menu { float: right; width: 470px; }
+#header .upper-menu div.clientes { float: left; margin-right: 10px; }
+#header .upper-menu ul { padding-right: 0px; }
+#header .upper-menu div.clientes { padding: 15px 18px; background: url('/images/bg-clientes.png') no-repeat scroll left top transparent; text-indent: -99999px; }
+#header .upper-menu ul li { float: left; padding: 7px 0pt; background: url('/images/bg-upper-menu-li.png') repeat-x scroll left top transparent; text-indent: -99999px; }
+#header .upper-menu ul li.pais { position: relative; }
+#header .upper-menu ul li ul { position: absolute; display: none; right: -3px; top: 32px; z-index: 30; }
+#header .wrapper .upper-menu ul li.pais ul li.fixer { background: url('/images/fixer.gif') no-repeat scroll right bottom transparent ! important; border-width: medium medium 1px; border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color rgb(0, 0, 0); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; }
+#header .upper-menu ul li.pais ul li { float: none; text-indent: 0pt; background: url('/images/bg-li-country.gif') repeat-x scroll left top rgb(44, 47, 45) ! important; padding: 4px 0px 4px 8px ! important; border-bottom: 1px solid rgb(0, 0, 0); border-right: 1px solid rgb(0, 0, 0); border-left: 1px solid rgb(0, 0, 0); width: 140px; }
+#header .upper-menu ul li.pais ul li:hover { background: url('/images/bg-li-country-hover.gif') repeat-x scroll left top rgb(255, 255, 255) ! important; }
+#header .upper-menu ul li.pais ul li:hover a { color: rgb(0, 0, 0) ! important; }
+#header .upper-menu ul li.pais ul li a { font-weight: bold; color: rgb(255, 255, 255); text-decoration: none; font-size: 13px; display: block; padding: 0pt; }
+#header .upper-menu ul li.pais ul li span { width: 16px; height: 11px; margin-top: 3px; float: left; margin-right: 5px; }
+#header .upper-menu ul li:hover { background: url('/images/bg-upper-menu-li-hover.png') repeat-x scroll 50% 0pt transparent; }
+#header .upper-menu ul li a { background: url('/images/li-divider.gif') no-repeat scroll right top transparent; display: block; padding: 8px 14px; }
+#header .upper-menu ul li.pais a { background: none repeat scroll 0% 0% transparent; padding: 8px 10px 8px 14px; }
+#header .upper-menu ul li.right { background: url('/images/bg-right-upper-menu-li.png') no-repeat scroll right top transparent; width: 9px; height: 44px; padding: 0pt; float: left; }
+#header .upper-menu ul li.left { background: url('/images/bg-left-upper-menu-li.png') no-repeat scroll right top transparent; width: 9px; height: 44px; padding: 0pt; float: left; }
+#header .menu-content { width: 100%; clear: both; }
+#header .upper-menu ul li a span, .clientes span { background: url('/images/menu-txt.png') no-repeat scroll 0% 0% transparent; display: block; width: 50px; }
+#header .upper-menu .clientes span { background-position: 0px 3px; width: 64px; }
+#header .upper-menu ul li.faq a span { background-position: 0px -19px; width: 48px; }
+#header .upper-menu ul li.soporte a span { background-position: 0px -41px; width: 95px; }
+#header .upper-menu ul li.contacto a span { background-position: 0px -63px; width: 75px; }
+#header .upper-menu ul li.pais a span, #header .upper-menu ul li.pais ul li span { width: 16px ! important; height: 11px; margin-top: 2px; }
+li.argentina span, span.argentina { background: url('/images/ar.png') repeat scroll 0% 0% transparent ! important; }
+li.bolivia span, span.bolivia { background: url('/images/bo.png') repeat scroll 0% 0% transparent ! important; }
+li.chile span, span.chile { background: url('/images/cl.png') repeat scroll 0% 0% transparent ! important; }
+li.colombia span, span.colombia { background: url('/images/co.png') repeat scroll 0% 0% transparent ! important; }
+li.costa-rica span, span.costa-rica { background: url('/images/cr.png') repeat scroll 0% 0% transparent ! important; }
+li.ecuador span, span.ecuador { background: url('/images/ec.png') repeat scroll 0% 0% transparent ! important; }
+li.el-salvador span, span.el-salvador { background: url('/images/sv.png') repeat scroll 0% 0% transparent ! important; }
+li.espana span, span.espana { background: url('/images/es.png') repeat scroll 0% 0% transparent ! important; }
+li.estados-unidos span, span.estados-unidos { background: url('/images/us.png') repeat scroll 0% 0% transparent ! important; }
+li.guatemala span, span.guatemala { background: url('/images/gt.png') repeat scroll 0% 0% transparent ! important; }
+li.honduras span, span.honduras { background: url('/images/hn.png') repeat scroll 0% 0% transparent ! important; }
+li.mexico span, span.mexico { background: url('/images/mx.png') repeat scroll 0% 0% transparent ! important; }
+li.nicaragua span, span.nicaragua { background: url('/images/ni.png') repeat scroll 0% 0% transparent ! important; }
+li.panama span, span.panama { background: url('/images/pa.png') repeat scroll 0% 0% transparent ! important; }
+li.puerto-rico span, span.puerto-rico { background: url('/images/pr.png') repeat scroll 0% 0% transparent ! important; }
+li.paraguay span, span.paraguay { background: url('/images/py.png') repeat scroll 0% 0% transparent ! important; }
+li.peru span, span.peru { background: url('/images/pe.png') repeat scroll 0% 0% transparent ! important; }
+li.rep-dominicana span, span.rep-dominicana { background: url('/images/do.png') repeat scroll 0% 0% transparent ! important; }
+li.trinidad-y-tobago span, span.trinidad-y-tobago { background: url('/images/tt.png') repeat scroll 0% 0% transparent ! important; }
+li.uruguay span, span.uruguay { background: url('/images/uy.png') repeat scroll 0% 0% transparent ! important; }
+li.venezuela span, span.venezuela { background: url('/images/ve.png') repeat scroll 0% 0% transparent ! important; }
+#header .menu-content ul li { background: url('/images/menu-content-bg.gif') repeat-x scroll left top rgb(137, 137, 137); float: left; text-transform: uppercase; }
+#header .menu-content ul li.contratar { background: url('/images/menu-content-contratar-bg.gif') repeat-x scroll left top rgb(96, 174, 41); float: right; border-left: 1px solid rgb(29, 107, 0); border-right: 1px solid rgb(29, 107, 0); }
+#header .menu-content ul li.contratar a { background: none repeat scroll 0% 0% transparent; }
+#header .menu-content ul li.selected { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+#header .menu-content ul li a { color: rgb(255, 255, 255); text-decoration: none; display: block; padding: 12px 20px; background: url('/images/menu-content-divider.gif') no-repeat scroll right top transparent; text-shadow: 0pt 1px 0pt rgba(0, 0, 0, 0.3); }
+#header .menu-content ul li.selected a { color: rgb(0, 0, 0); }
+#content .promos { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+#content .banner { padding-top: 20px; }
+#content .url-box { background: url('/images/bg-url.gif') repeat-x scroll left top rgb(255, 167, 5); border: 1px solid rgb(232, 162, 0); border-radius: 5px 5px 5px 5px; padding: 10px; position: relative; }
+#content .url-box input { width: 612px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border-radius: 5px 5px 5px 5px; border: 1px solid rgb(204, 143, 0); padding: 10px 10px 9px; margin: 0pt; font-size: 24px; color: rgb(204, 204, 204); vertical-align: top; }
+div.select-domain { position: absolute; top: 13px; right: 98px; font-weight: bold; color: rgb(79, 79, 79); height: 42px; background: url('/images/bg-select-domain.gif') repeat-x scroll left top rgb(204, 204, 204); font-size: 18px; border: 1px solid rgb(174, 174, 174); border-radius: 5px 5px 5px 5px; text-transform: uppercase; text-shadow: 0pt 1px 0pt rgb(255, 255, 255); z-index: 200; overflow: hidden; }
+div.select-domain:hover { cursor: pointer; }
+form { margin: 0pt; padding: 0pt; }
+div.select-domain .domain { float: left; padding: 11px 15px 7px; }
+.url-box .domain-drop { float: left; background: url('/images/url-divider.gif') repeat-y scroll left top transparent; height: 42px; }
+#select-domain { position: absolute; right: 100px; text-align: right; top: 55px; border: 1px solid rgb(174, 174, 174); z-index: 100; width: 106px; box-shadow: 0pt 0pt 10px rgb(0, 0, 0); display: none; }
+#select-domain li { background: none repeat scroll 0pt 0pt rgb(204, 204, 204); display: block; font-size: 15px; font-weight: bold; padding: 8px; border-top: 1px solid rgb(255, 255, 255); border-bottom: 1px solid rgb(174, 174, 174); }
+#select-domain li:hover { cursor: pointer; background: none repeat scroll 0% 0% rgb(77, 150, 230); color: rgb(255, 255, 255); }
+.url-box .domain-drop span { width: 14px; height: 9px; display: block; background: url('/images/arrow-down.png') no-repeat scroll left top transparent; margin: 18px 9px; }
+#content .url-box input.btn-search { width: 163px; height: 50px; background: url('/images/entrar.png') no-repeat scroll left top transparent; text-indent: -9999px; border-radius: 0pt 0pt 0pt 0pt; border: 0pt none; }
+#content .big-plans { background: url('/images/bg-footer.gif') repeat-x scroll left top rgb(20, 20, 20); margin: 10px 0pt; padding: 10px; }
+#content .big-plans .planes { width: 225px; height: 165px; float: left; margin-right: 20px; position: relative; background: none repeat scroll 0% 0% rgb(255, 255, 255); border-radius: 5px 5px 5px 5px; }
+#content .big-plans .plan-hosting { background: url('/images/hosting-box.png') repeat-x scroll left top rgb(255, 255, 255); }
+#content .big-plans .plan-reseller { background: url('/images/reseller-box.png') repeat-x scroll left top rgb(255, 255, 255); }
+#content .big-plans .plan-dedicados { background: url('/images/dedicados-box.png') repeat-x scroll left top rgb(255, 255, 255); }
+#content .big-plans .planes p { color: rgb(255, 255, 255); text-shadow: 0pt 1px 0pt rgb(0, 0, 0); margin: 25px 19px; text-align: center; font-size: 20px; }
+#content .big-plans .planes a.btn-more-details { width: 208px; height: 37px; display: block; background: url('/images/mas_detalles.png') no-repeat scroll left top transparent; text-indent: -9999px; position: absolute; bottom: 6px; left: 35px; }
+#content .main .features { margin-right: 20px; padding: 20px 0pt 20px 70px; border-bottom: 1px dashed rgb(216, 216, 216); }
+#content .main .features.uptime { background: url('/images/habbo.png') no-repeat scroll 0pt 20px transparent; }
+#content .main .quality { background: url('/images/habbo1.png') no-repeat scroll 0pt 20px transparent; }
+#content .main .real-time { background: url('/images/habbo2.png') no-repeat scroll 0pt 20px transparent; }
+#content .main .features.last { border-bottom: medium none; }
+#content .main .features h2 { font-size: 24px; }
+#content .main .features p { margin: 5px 0pt 0pt; }
+#content .main.interna p, .promos p { color: rgb(136, 136, 136); margin: 0pt 0pt 15px; }
+.contact-f div { width: 245px; }
+.sidebar .box {
+	padding: 20px 0pt 0.5px 20px;
+	background: url('/images/bg-box.png') no-repeat scroll left bottom transparent;
+}
+.sidebar .box.last { padding: 20px 15px 20px 25px; background: none repeat scroll 0% 0% transparent; }
+.sidebar .box h3 { color: rgb(255, 102, 0); margin-bottom: 10px; }
+.sidebar .box strong.phone { color: rgb(0, 0, 0); font-size: 24px; display: block; }
+.sidebar .promo-0 { padding-left: 40px; background: url('/images/taringa-logo.png') no-repeat scroll left top transparent; }
+.sidebar ul.cards li { float: left; margin: 0pt 5px 5px 0pt; }
+#footer { background: url('/images/bg-footer.gif') repeat-x scroll left top rgb(20, 20, 20); color: rgb(255, 255, 255); margin-top: -60px; padding: 60px 0pt 30px; text-shadow: 0pt 1px 3px rgb(0, 0, 0); }
+#footer .wrapper { padding: 20px; width: 740px; position: relative; }
+#footer h3 { font-size: 20px; font-weight: bold; color: rgb(101, 202, 29); }
+#footer a { border-bottom: 1px dashed rgb(85, 85, 85); font-weight: bold; color: rgb(255, 255, 255); text-decoration: none; }
+#footer li { display: block; padding: 3px 0pt; }
+#footer .number-f { text-align: right; color: rgb(153, 153, 153); text-transform: uppercase; }
+#footer .number-f p { color: rgb(153, 153, 153); font-size: 10px; }
+#footer span.number { display: block; color: rgb(255, 255, 255); font-size: 33px; }
+img, div, a, li, h1, span {
+	text-align: center;
+}
+#content .box ul.cards li { width: auto; }
+a.btn_fa::-moz-focus-inner { border: 0pt none; padding: 0pt; }
+.skype-footer { color: rgb(204, 204, 255) ! important; }
+.skype-footer:hover { color: white ! important; }
+.number-f img.sk-footer { margin-left: 5px; }
+ul.countries-footer { text-align: center; }
+ul.countries-footer li { display: inline ! important; margin: 0pt 5px; }
+ul.countries-footer li:hover { cursor: pointer; }
+/* ::::: http://www.wiroos.com/img/nivo-slider.css ::::: */
+
+/* ::::: http://www.wiroos.com/img/nivo.css ::::: */
+
+.fb_reset { background: none repeat scroll 0% 0% transparent; border-spacing: 0pt; border: 0pt none; color: rgb(0, 0, 0); cursor: auto; direction: ltr; font-family: "lucida grande",tahoma,verdana,arial,sans-serif; font-size: 11px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 1; margin: 0pt; overflow: visible; padding: 0pt; text-align: left; text-decoration: none; text-indent: 0pt; text-shadow: none; text-transform: none; visibility: visible; white-space: normal; word-spacing: normal; }
+.fb_iframe_widget { position: relative; display: inline-block; }
+.fb_iframe_widget iframe { position: relative; vertical-align: text-bottom; }
+.fb_iframe_widget span { position: relative; }
+.fb_edge_widget_with_comment { position: relative; }

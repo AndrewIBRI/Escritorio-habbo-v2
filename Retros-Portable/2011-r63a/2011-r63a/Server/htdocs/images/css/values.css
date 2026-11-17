@@ -1,0 +1,20 @@
+.values_box {
+	border: 2px solid white;
+	box-shadow: 0px 0px 0px 1px #b3b3b3;
+	overflow: hidden;
+	border-radius: 5px;
+	height: 90px;
+	margin-bottom: 6px;
+	text-align: left;
+}
+.rare_image {
+	background-color: #d9d9d9;
+	width: 90px;
+	height: 90px;
+	float: left;
+	border-right: 1px solid rgba(0,0,0,.3);
+	opacity: 1;
+}
+.right_content{
+	background-color: #f6f6f6;
+}

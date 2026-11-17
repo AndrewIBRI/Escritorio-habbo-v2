@@ -1,0 +1,73 @@
+services:
+  r63b-db:
+    image: mariadb:10.5
+    container_name: habbo-r63b-db
+    restart: unless-stopped
+    command: --character-set-server=latin1 --collation-server=latin1_swedish_ci --sql-mode=""
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      MYSQL_DATABASE: r63b
+      MYSQL_USER: ${MYSQL_USER:-habbo}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-habbopass}
+    ports:
+      - "${PORT_R63B_DB:-33064}:3306"
+    volumes:
+      - ./sql/r63b.sql:/docker-entrypoint-initdb.d/01-r63b.sql:ro
+      - r63b-db-data:/var/lib/mysql
+    networks:
+      - habbo-r63b-net
+
+  r63b-emulator:
+    build:
+      context: ../..
+      dockerfile: docker/r63b/emulator/Dockerfile
+    container_name: habbo-r63b-emulator
+    restart: unless-stopped
+    environment:
+      DB_HOST: r63b-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: r63b
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_R63B_GAME: ${PORT_R63B_GAME:-30100}
+      PORT_R63B_MUS: ${PORT_R63B_MUS:-30101}
+      EMU_TYPE: ${EMU_TYPE:-atom}
+    ports:
+      - "${PORT_R63B_GAME:-30100}:${PORT_R63B_GAME:-30100}"
+      - "${PORT_R63B_MUS:-30101}:${PORT_R63B_MUS:-30101}"
+    depends_on:
+      - r63b-db
+    networks:
+      - habbo-r63b-net
+
+  r63b-web:
+    build:
+      context: ../..
+      dockerfile: docker/r63b/web/Dockerfile
+    container_name: habbo-r63b-web
+    restart: unless-stopped
+    environment:
+      DB_HOST: r63b-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: r63b
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_R63B_WEB: ${PORT_R63B_WEB:-8062}
+      PORT_R63B_GAME: ${PORT_R63B_GAME:-30100}
+      PORT_R63B_MUS: ${PORT_R63B_MUS:-30101}
+    ports:
+      - "${PORT_R63B_WEB:-8062}:80"
+    depends_on:
+      - r63b-db
+    networks:
+      - habbo-r63b-net
+
+networks:
+  habbo-r63b-net:
+    name: habbo-r63b-network
+    driver: bridge
+
+volumes:
+  r63b-db-data:

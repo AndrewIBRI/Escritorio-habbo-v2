@@ -1,0 +1,20 @@
+{
+  "$schema": "https://easypanel.io/schema.json",
+  "name": "Habbo Retro Suite",
+  "description": "One-click deployment of Habbo Retros (2007-v14, 2009-v31, 2011-r63a, 2012-r63b, 2013-r63b, 2015-r63c) on Easypanel",
+  "instructions": "Set your VPS public IP in HOST_IP. Each retro exposes its Web CMS port and TCP Game port.",
+  "properties": {
+    "hostIp": {
+      "type": "string",
+      "title": "Public Server IP / Domain",
+      "description": "Your VPS public IP or registered domain",
+      "default": "127.0.0.1"
+    },
+    "dbPassword": {
+      "type": "string",
+      "title": "Database Password",
+      "description": "Password for MySQL/MariaDB database user",
+      "default": "habbopass"
+    }
+  }
+}

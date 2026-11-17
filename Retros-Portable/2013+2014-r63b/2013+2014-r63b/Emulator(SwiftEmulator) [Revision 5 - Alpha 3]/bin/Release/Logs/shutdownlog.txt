@@ -1,0 +1,14 @@
+
+Hotel pre-warning =>[0 s, 0 ms]
+Socket close =>[0 s, 0 ms]
+Furni pre-save and connection close =>[0 s, 0 ms]
+Room destructor =>[0 s, 62 ms]
+Database pre-save =>[0 s, 0 ms]
+Connection shutdown =>[0 s, 0 ms]
+Game destroy =>[0 s, 15 ms]
+Database shutdown =>[0 s, 0 ms]
+Total time on shutdown 0 s, 77 ms
+You have reached ==> [END OF SESSION]
+
+
+

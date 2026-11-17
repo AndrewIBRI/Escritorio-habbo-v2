@@ -1,0 +1,3 @@
+<br />
+<b>Warning</b>:  readfile(http://images.habbo.com/dcr/hof_furni/11551/kinkysofa.swf) [<a href='function.readfile'>function.readfile</a>]: failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found
+ in <b>/is/htdocs/wp1186053_H61YCWWCN7/www/dcr-project/stuff/itemdl.php</b> on line <b>6</b><br />

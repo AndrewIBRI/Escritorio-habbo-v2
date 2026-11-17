@@ -1,0 +1,22 @@
+﻿namespace Butterfly.HabboHotel.Achievements
+{
+    using System;
+    using System.Runtime.InteropServices;
+
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct AchievementLevel
+    {
+        internal readonly int Level;
+        internal readonly int RewardPixels;
+        internal readonly int RewardPoints;
+        internal readonly int Requirement;
+        public AchievementLevel(int level, int rewardPixels, int rewardPoints, int requirement)
+        {
+            this.Level = level;
+            this.RewardPixels = rewardPixels;
+            this.RewardPoints = rewardPoints;
+            this.Requirement = requirement;
+        }
+    }
+}
+

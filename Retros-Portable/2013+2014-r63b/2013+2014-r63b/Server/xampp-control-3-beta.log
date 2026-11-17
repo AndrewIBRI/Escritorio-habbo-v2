@@ -1,0 +1,155 @@
+19:15:02  [main] 	Initializing main
+19:15:02  [main] 	Windows version: 6.2 (build 9200)
+19:15:02  [main] 	Xampp version: 1.7.7
+19:15:02  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+19:15:02  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+19:15:02  [main] 	something with services there will be a security dialogue! So think about running
+19:15:02  [main] 	this application with administrator rights!
+19:15:02  [main] 	Working with basedir: "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator-[2013]-butterfly\server\"
+19:15:02  [main] 	Initializing moduls
+19:15:02  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator-[2013]-butterfly\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+19:15:02  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator-[2013]-butterfly\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+19:15:02  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator-[2013]-butterfly\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator-[2013]-butterfly\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+19:15:02  [main] 	Starting check-timer
+19:15:30  [apache] 	Starting apache app...
+19:15:30  [apache] 	Status change detected: running
+19:15:30  [apache] 	Status change detected: stopped
+19:15:32  [mysql] 	Starting mysql app...
+19:15:32  [mysql] 	Status change detected: running
+19:17:04  [mysql] 	Stopping mysql (PID: 7204)
+19:17:04  [mysql] 	Status change detected: stopped
+19:17:05  [main] 	Deinitializing moduls
+19:17:05  [main] 	Deinitializing main
+
+19:18:12  [main] 	Initializing main
+19:18:12  [main] 	Windows version: 6.2 (build 9200)
+19:18:12  [main] 	Xampp version: 1.7.7
+19:18:12  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+19:18:12  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+19:18:12  [main] 	something with services there will be a security dialogue! So think about running
+19:18:12  [main] 	this application with administrator rights!
+19:18:12  [main] 	Working with basedir: "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\"
+19:18:12  [main] 	Initializing moduls
+19:18:12  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+19:18:12  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+19:18:12  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+19:18:12  [main] 	Starting check-timer
+19:18:13  [apache] 	Starting apache app...
+19:18:20  [main] 	Deinitializing moduls
+19:18:20  [main] 	Deinitializing main
+
+19:19:29  [main] 	Initializing main
+19:19:29  [main] 	Windows version: 6.2 (build 9200)
+19:19:29  [main] 	Xampp version: 1.7.7
+19:19:29  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+19:19:29  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+19:19:29  [main] 	something with services there will be a security dialogue! So think about running
+19:19:29  [main] 	this application with administrator rights!
+19:19:29  [main] 	Working with basedir: "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\"
+19:19:29  [main] 	Initializing moduls
+19:19:29  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+19:19:29  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+19:19:29  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\r63b-edition\r63b-swiftemulator\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+19:19:29  [main] 	Starting check-timer
+19:19:54  [apache] 	Starting apache app...
+19:19:54  [apache] 	Status change detected: running
+19:19:58  [apache] 	Stopping apache (PID: 6780)
+19:19:58  [apache] 	Stopping apache (PID: 7676)
+19:19:58  [apache] 	Status change detected: stopped
+19:20:15  [apache] 	Starting apache app...
+19:20:22  [apache] 	Starting apache app...
+19:20:22  [apache] 	Status change detected: running
+19:20:43  [apache] 	Stopping apache (PID: 4512)
+19:20:43  [apache] 	Stopping apache (PID: 7628)
+19:20:43  [apache] 	Status change detected: stopped
+19:20:47  [apache] 	Starting apache app...
+19:20:47  [apache] 	Status change detected: running
+19:20:50  [apache] 	Stopping apache (PID: 2544)
+19:20:50  [apache] 	Stopping apache (PID: 2940)
+19:20:50  [apache] 	Status change detected: stopped
+19:22:26  [main] 	Deinitializing moduls
+19:22:26  [main] 	Deinitializing main
+
+23:52:33  [main] 	Initializing main
+23:52:33  [main] 	Windows version: 6.2 (build 9200)
+23:52:33  [main] 	Xampp version: 1.7.7
+23:52:33  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+23:52:33  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+23:52:33  [main] 	something with services there will be a security dialogue! So think about running
+23:52:33  [main] 	this application with administrator rights!
+23:52:33  [main] 	Working with basedir: "c:\users\joaowars776\desktop\r63b-edition\r63b-butterflyemulator\server\"
+23:52:33  [main] 	Initializing moduls
+23:52:33  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-butterflyemulator\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+23:52:33  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-butterflyemulator\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+23:52:33  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\r63b-edition\r63b-butterflyemulator\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\r63b-edition\r63b-butterflyemulator\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+23:52:33  [main] 	Starting check-timer
+23:52:50  [main] 	Deinitializing moduls
+23:52:50  [main] 	Deinitializing main
+
+00:42:06  [main] 	Initializing main
+00:42:06  [main] 	Windows version: 6.2 (build 9200)
+00:42:06  [main] 	Xampp version: 1.7.7
+00:42:06  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+00:42:06  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+00:42:06  [main] 	something with services there will be a security dialogue! So think about running
+00:42:06  [main] 	this application with administrator rights!
+00:42:06  [main] 	Working with basedir: "c:\users\joaowars776\desktop\retros-portable\r63b-butterflyemulator\server\"
+00:42:06  [main] 	Initializing moduls
+00:42:06  [mysql] 	Possible problem detected: Port 3306 in use by "c:\users\joaowars776\desktop\retros-portable\r63b-butterflyemulator\server\xampp-control-3-beta.exe"!
+00:42:06  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\r63b-butterflyemulator\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+00:42:06  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\r63b-butterflyemulator\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+00:42:06  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\r63b-butterflyemulator\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\retros-portable\r63b-butterflyemulator\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+00:42:06  [main] 	Starting check-timer
+00:42:21  [main] 	Deinitializing moduls
+00:42:21  [main] 	Deinitializing main
+
+01:23:28  [main] 	Initializing main
+01:23:28  [main] 	Windows version: 6.2 (build 9200)
+01:23:28  [main] 	Xampp version: 1.7.7
+01:23:28  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+01:23:28  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+01:23:28  [main] 	something with services there will be a security dialogue! So think about running
+01:23:28  [main] 	this application with administrator rights!
+01:23:28  [main] 	Working with basedir: "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b-swiftemu\server\"
+01:23:28  [main] 	Initializing moduls
+01:23:28  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b-swiftemu\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+01:23:28  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b-swiftemu\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+01:23:28  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b-swiftemu\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b-swiftemu\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+01:23:28  [main] 	Starting check-timer
+01:23:41  [main] 	Deinitializing moduls
+01:23:41  [main] 	Deinitializing main
+
+20:15:40  [main] 	Initializing main
+20:15:40  [main] 	Windows version: 6.2 (build 9200)
+20:15:40  [main] 	Xampp version: 1.7.7
+20:15:40  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+20:15:40  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+20:15:40  [main] 	something with services there will be a security dialogue! So think about running
+20:15:40  [main] 	this application with administrator rights!
+20:15:40  [main] 	Working with basedir: "c:\users\joaowars776\desktop\retros-portable\r63b-2013+2014\server\"
+20:15:40  [main] 	Initializing moduls
+20:15:40  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\r63b-2013+2014\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+20:15:40  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\r63b-2013+2014\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+20:15:40  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\r63b-2013+2014\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\retros-portable\r63b-2013+2014\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+20:15:40  [main] 	Starting check-timer
+20:15:46  [main] 	Deinitializing moduls
+20:15:46  [main] 	Deinitializing main
+
+10:39:20  [main] 	Initializing main
+10:39:20  [main] 	Windows version: 6.2 (build 9200)
+10:39:20  [main] 	Xampp version: 1.7.7
+10:39:20  [main] 	Control center version: 3.0.2 [ Compiled: Jul 21th 2011 - build #1 ]
+10:39:20  [main] 	Running not as admin! This will work for all application stuff, but whenever you do
+10:39:20  [main] 	something with services there will be a security dialogue! So think about running
+10:39:20  [main] 	this application with administrator rights!
+10:39:20  [main] 	Working with basedir: "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b\server\"
+10:39:20  [main] 	Initializing moduls
+10:39:20  [apache] 	Possible problem detected: Port 80 in use by "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b\server\xampp-control-3-beta.exe"!
+10:39:20  [mysql] 	Possible problem detected: Port 3306 in use by "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b\server\xampp-control-3-beta.exe"!
+10:39:20  [filezilla] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b\server\FileZillaFTP\FileZillaServer.exe" not found - run this program from your XAMPP root directory!
+10:39:20  [mercury] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b\server\MercuryMail\mercury.exe" not found - run this program from your XAMPP root directory!
+10:39:20  [tomcat] 	Possible problem detected: file "c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b\server\tomcat\bin\tomcat6.exe/c:\users\joaowars776\desktop\retros-portable\2013+2014-r63b\server\tomcat\bin\tomcat7.exe" not found - run this program from your XAMPP root directory!
+10:39:20  [main] 	Starting check-timer
+10:39:35  [main] 	Deinitializing moduls
+10:39:35  [main] 	Deinitializing main
+

@@ -1,0 +1,20 @@
+.container.index { width:984px; padding-top: 50px;}
+
+.index-top-bar { background-position: 0, center; height:72px; display:block; border: 3px solid #2A66A3; background-image: url(../images/shine.png), url(../images/gradient.png); border-radius: 4px; background-color: #2E7CCA; -moz-box-shadow: -3px 3px 0px 0px rgba(0, 0, 0, 0.22);    -webkit-box-shadow: -3px 3px 0px 0px rgba(0, 0, 0, 0.22);    box-shadow: -3px 3px 0px 0px rgba(0, 0, 0, 0.22);}
+
+.index-top-bar .online p {font-family: tahoma;font-size: 12px;color: #FFF;padding: 29px 0; }
+.index-top-bar .stats p { font-family: tahoma;font-size: 12px;color: #FFF; padding: 7px 0px; margin-left: -3px; text-shadow: 0 1px 0 #000000;}
+
+.index-online { width:130px; height:30px; background:url(../images/online.png); margin: 21px 0; float: left; text-align: center;}
+
+.sprite.alert {background-position: 0px -87px;width: 29px; height 29px; float: left;margin: 21px 10px;}
+.sprite.star {background:url(../images/star.png);width: 55px; height 55px; float: right;height: 64px;margin: 3px 15px 3px 10px;}
+
+.index-bg { width:984px; height:340px; background:url(../images/index-bg.png); margin-top: 8px;}
+
+.logo { background:url(../images/logo.png); height:50px; width:197px; position:absolute; z-index: 2; top: 150px; }
+
+.login {position: absolute; margin: 178px 158px; text-align: center; }
+.login button { margin: 1px 5px; height: 34px; float: left;}
+
+input.login-form { width: 175px; margin: 0 5px; padding: 11px; float: left;}

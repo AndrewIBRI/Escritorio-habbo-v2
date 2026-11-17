@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/* CSS Document */
+/* DESIGNED & CODED BY ITSJASON OF CLUBHABBOFORUM */
+
+html, body {	
+	background-image: url("../images/background.png");	
+	background-repeat: repeat;	
+	background-color:#FFFFFF;	
+	font-family: Verdana;	
+	font-size: 10px;	
+	color: #9d9d9d;	
+	margin: 0 auto;
+}
+
+A { text-decoration: none; font-weight: bold; color: #84B1B7; }
+img { border: none; }
+
+img{	
+	border: none;
+}
+
+div#wrapper{	
+	width: 552px;	
+	height: auto;	
+	margin: 0 auto;
+}
+	
+div#navigation{				
+	background-image: url("../images/navigation.png");			
+	background-repeat: no-repeat;				
+	width: 484px;			
+	height: 36px;
+	float: left;
+	margin-left: 34px;	
+	margin-top: 50px;
+}
+
+div#boxtop{				
+	background-image: url("../images/boxtop.png");			
+	background-repeat: no-repeat;				
+	width: 552px;			
+	height: 20px;	
+	float: left;								
+}
+
+div#boxmid{				
+	background-image: url("../images/boxmid.png");			
+	background-repeat: repeat-y;				
+	width: 538px;			
+	height: auto;	
+	float: left;	
+	padding: 5px 7px 5px 7px;							
+}
+
+div#boxbot{				
+	background-image: url("../images/boxbot.png");			
+	background-repeat: no-repeat;				
+	width: 552px;			
+	height: 20px;	
+	float: left;								
+}
+
+div#footer{				
+	background-image: url("../images/footer.png");			
+	background-repeat: no-repeat;				
+	width: 476px;			
+	height: 36px;	
+	float: left;	
+	margin-left: 34px;		
+	padding: 5px 0 0 8px;	
+	color: #FFFFFF;					
+}
+
+        div#home{
+	background: url('../images/buttons/reglashotel.png');
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 36px;
+	margin-left: 2px;
+	float: left;
+}
+
+#home:hover{
+	background: url('../images/buttons/reglashotel1.png');
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 36px;
+}
+
+div#job{
+	background: url('../images/buttons/reglasxat.png');
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 36px;
+	float: left;
+}
+
+#job:hover{
+	background: url('../images/buttons/reglasxat1.png');
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 36px;
+}
+
+div#preguntasfrecuentes{
+	background: url('../images/buttons/preguntasfrecuentes.png');
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 36px;
+	float: left;
+}
+
+#preguntasfrecuentes:hover{
+	background: url('../images/buttons/preguntasfrecuentes1.png');
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 36px;
+
+}

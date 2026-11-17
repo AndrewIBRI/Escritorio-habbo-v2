@@ -1,0 +1,12 @@
+#header-container {
+	background-color: rgb(168, 11, 11);
+}
+.navi {
+	background-color: rgb(221, 32, 32);
+}
+.navi li {
+	background-color: rgb(221, 32, 32) url(http://habbo.ac/images/button_background.png) center;
+}
+.navi li:hover{
+	background: #46c773;
+}

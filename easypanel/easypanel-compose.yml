@@ -1,0 +1,78 @@
+# ==============================================================================
+# Easypanel Docker Compose Template for Habbo Retros
+# ==============================================================================
+# In Easypanel:
+# 1. Create a Project named "Habbo-Suite"
+# 2. Add an App -> "Compose"
+# 3. Paste this compose configuration or link to your GitHub repository
+# 4. Set the Environment Variables in the Easypanel UI
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # ----------------------------------------------------------------------------
+  # Retro 2007 - v14 (Kepler)
+  # ----------------------------------------------------------------------------
+  v14-db:
+    image: mariadb:10.5
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      MYSQL_DATABASE: ${DB_NAME_V14:-v14}
+      MYSQL_USER: ${MYSQL_USER:-habbo}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-habbopass}
+    volumes:
+      - v14_db_data:/var/lib/mysql
+      - ../docker/v14/sql:/docker-entrypoint-initdb.d:ro
+    networks:
+      - habbo_net
+
+  v14-web:
+    build:
+      context: ..
+      dockerfile: docker/v14/web/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - v14-db
+    environment:
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      DB_HOST: v14-db
+      DB_NAME: ${DB_NAME_V14:-v14}
+      DB_USER: ${MYSQL_USER:-habbo}
+      DB_PASS: ${MYSQL_PASSWORD:-habbopass}
+      GAME_PORT: ${PORT_V14_GAME:-12321}
+    ports:
+      - "${PORT_V14_WEB:-8014}:80"
+    networks:
+      - habbo_net
+
+  v14-emulator:
+    build:
+      context: ..
+      dockerfile: docker/v14/emulator/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - v14-db
+    environment:
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      DB_HOST: v14-db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME_V14:-v14}
+      DB_USER: ${MYSQL_USER:-habbo}
+      DB_PASS: ${MYSQL_PASSWORD:-habbopass}
+      GAME_PORT: ${PORT_V14_GAME:-12321}
+      MUS_PORT: ${PORT_V14_MUS:-12322}
+      RCON_PORT: ${PORT_V14_RCON:-12309}
+    ports:
+      - "${PORT_V14_GAME:-12321}:${PORT_V14_GAME:-12321}"
+      - "${PORT_V14_MUS:-12322}:${PORT_V14_MUS:-12322}"
+    networks:
+      - habbo_net
+
+networks:
+  habbo_net:
+    driver: bridge
+
+volumes:
+  v14_db_data:

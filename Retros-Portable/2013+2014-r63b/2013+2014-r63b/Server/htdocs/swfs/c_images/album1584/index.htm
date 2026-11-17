@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)http://www.habbid.com.br/player4/index.php?v=10 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" language="JavaScript" src="./Habbid · Jogar Habbo Hotel nunca foi tão divertido_files/jquery.js"><!--  --></script>
+<script type="text/javascript" language="JavaScript" src="./Habbid · Jogar Habbo Hotel nunca foi tão divertido_files/jquery.cookie.js"><!--  --></script>
+<script type="text/javascript">
+function gotoplayer(url, nome){
+	location.href=url;
+	$.cookie("player", nome, {expires: 7, path: '/', domain: 'habbid.com.br'});
+}
+</script>
+<script language="JavaScript">
+<!--
+primeira = true;
+contPlayer = '<object id="WMPlay" width="0" height="0" classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95"   codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701" standby="" type="application/x-oleobject" viewastext hspace="0" vspace="0" align="top"> <param name="FileName" value="http://www.habbid.com.br/player4/habbid.asx"> <param name="AutoStart" value="True"> <param name="TransparentAtStart" value="false"> <param name="ShowControls" value="0"> <param name="ShowDisplay" value="false"> <param name="ShowStatusBar" value="0"> <param name="AutoSize" value="0"> <param name="AnimationAtStart" value="false"> <embed width="60" height="44" autostart="True" align="top" type="application/x-mplayer2" id="MediaPlayer" transparentatstart="false" showcontrols="0" showdisplay="false" showstatusbar="0" animationatstart="false" filename="http://www.habbid.com.br/player4/habbid.asx" autosize="0"> </embed></object>';
+var tocando = 0;
+function PlayClick() {
+	if (tocando == 0) {
+		document.getElementById("player_habbid").innerHTML = contPlayer;
+		tocando = 1;
+	}
+}
+
+function StopClick() {
+	tocando = 0;
+	document.getElementById("player_habbid").innerHTML = "";
+}
+function UpVolumeClick() {
+	if (document.MediaPlayer.Volume <= -300)
+		document.MediaPlayer.Volume = document.MediaPlayer.Volume + 300;
+}
+function DownVolumeClick() {
+	if ( document.MediaPlayer.Volume >= -8000)
+		document.MediaPlayer.Volume = document.MediaPlayer.Volume - 300;
+}
+//-->
+</script>
+<style>
+body{
+	margin:0px; padding:0px;
+}
+</style>
+</head>
+<body>
+<div id="player_habbid"></div>
+<script>
+$(document).ready(function() {
+	PlayClick();
+});
+</script>
+
+</body></html>

@@ -1,0 +1,55 @@
+#footer {
+	text-align: center;
+	font-family: Ubuntu;
+	font-size: 17px;
+	color: #000;
+	text-shadow: 0 1px #fff;
+	margin-top: 15px;
+	padding-top: 15px;
+	height: 45px;
+}
+
+#creditos {
+	position: fixed;
+	background: #232323;
+	border-top: solid 1px #000;
+	width: 100%;
+	height: 70px;
+	padding: 15px 0 15px 0;
+	left: 0;
+	bottom: 0;
+}
+
+.creditos {
+	background: url('../img/ac.png') no-repeat;
+	padding-left: 40px;
+	height: 52px;
+	text-align: left;
+	margin-left: 15px;
+	float: left;
+}
+
+#redes {
+	margin-right: 15px;
+}
+
+.red {
+	height: 32px;
+	width: 32px;
+	margin-left: 5px;
+	float: right;
+}
+
+.twit {
+	background: url('../img/redes.png');
+}
+.twit:hover {
+	background: url('../img/redes.png') 32px 0;
+}
+
+.face {
+	background: url('../img/redes.png') 0 32px;
+}
+.face:hover {
+	background: url('../img/redes.png') 32px 32px;
+}

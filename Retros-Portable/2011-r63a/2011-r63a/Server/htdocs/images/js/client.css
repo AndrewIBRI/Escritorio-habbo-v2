@@ -1,0 +1,23 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, #client {
+	height: 100%;
+	text-align: left;
+	background-color: #000;
+}
+a { color: #FAAC58; }
+#topbar { text-align: center; background: #2E2E2E; color: #fff; padding: 3px; height: 20px; font-family: Verdana; font-size: 10.5px;  }
+.left {margin-top: 4px; margin-left: 4px; float: left; }
+.right {margin-top: 4px; margin-right: 4px; float: right; }
+
+#client {
+	position: absolute;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}

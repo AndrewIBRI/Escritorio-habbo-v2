@@ -1,0 +1,82 @@
+services:
+  v31-db:
+    image: mariadb:11
+    container_name: habbo-v31-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      MYSQL_DATABASE: ${DB_NAME_V31:-v31}
+      MYSQL_USER: ${MYSQL_USER:-habbo}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-habbopass}
+    volumes:
+      - v31_db_data:/var/lib/mysql
+      - ./sql/v31.sql:/docker-entrypoint-initdb.d/01_v31.sql:ro
+    ports:
+      - "${PORT_V31_DB:-33062}:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - habbo-v31-net
+
+  v31-emulator:
+    build:
+      context: ../..
+      dockerfile: docker/v31/server/Dockerfile
+    container_name: habbo-v31-emulator
+    environment:
+      DB_HOST: v31-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: ${DB_NAME_V31:-v31}
+      PORT_V31_GAME: ${PORT_V31_GAME:-12321}
+      PORT_V31_MUS: ${PORT_V31_MUS:-12322}
+      PORT_V31_RCON: ${PORT_V31_RCON:-12309}
+    ports:
+      - "${PORT_V31_GAME:-12321}:12321"
+      - "${PORT_V31_MUS:-12322}:12322"
+      - "${PORT_V31_RCON:-12309}:12309"
+    depends_on:
+      v31-db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - habbo-v31-net
+
+  v31-web:
+    build:
+      context: ../..
+      dockerfile: docker/v31/web/Dockerfile
+    container_name: habbo-v31-web
+    environment:
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_V31_WEB: ${PORT_V31_WEB:-8031}
+      PORT_V31_GAME: ${PORT_V31_GAME:-12321}
+      PORT_V31_MUS: ${PORT_V31_MUS:-12322}
+      PORT_V31_RCON: ${PORT_V31_RCON:-12309}
+      DB_HOST: v31-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: ${DB_NAME_V31:-v31}
+    ports:
+      - "${PORT_V31_WEB:-8031}:80"
+    depends_on:
+      v31-db:
+        condition: service_healthy
+      v31-emulator:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - habbo-v31-net
+
+volumes:
+  v31_db_data:
+
+networks:
+  habbo-v31-net:
+    name: habbo-v31-network
+    driver: bridge

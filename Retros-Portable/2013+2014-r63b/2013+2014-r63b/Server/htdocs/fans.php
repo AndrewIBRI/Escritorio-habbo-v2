@@ -1,0 +1,1 @@
+﻿<img src="HabbieHotel.com.br/image" width="160" height="120" alt="Manutenção ;(!" />

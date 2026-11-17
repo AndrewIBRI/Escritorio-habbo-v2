@@ -1,0 +1,13 @@
+var OX_7fb04361 = '';
+OX_7fb04361 += "<"+"script type=\"text/javascript\"><"+"!--\n";
+OX_7fb04361 += "google_ad_client = \"pub-6010600850358180\";\n";
+OX_7fb04361 += "/* 468x60, criado 01/03/09 */\n";
+OX_7fb04361 += "google_ad_slot = \"3192709131\";\n";
+OX_7fb04361 += "google_ad_width = 468;\n";
+OX_7fb04361 += "google_ad_height = 60;\n";
+OX_7fb04361 += "//-->\n";
+OX_7fb04361 += "<"+"/script>\n";
+OX_7fb04361 += "<"+"script type=\"text/javascript\"\n";
+OX_7fb04361 += "src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">\n";
+OX_7fb04361 += "<"+"/script><"+"div id=\'beacon_274e78296f\' style=\'position: absolute; left: 0px; top: 0px; visibility: hidden;\'><"+"img src=\'http://ads.habbid.com.br/www/delivery/lg.php?bannerid=47&amp;campaignid=20&amp;zoneid=18&amp;loc=1&amp;referer=http%3A%2F%2Fwww.habbid.com.br%2Fmenu%2Fcoisas-uteis%2Femblemas%2F&amp;cb=274e78296f\' width=\'0\' height=\'0\' alt=\'\' style=\'width: 0px; height: 0px;\' /><"+"/div><"+"script type=\'text/javascript\'>document.context=\'YjozNnw=\'; <"+"/script>\n";
+document.write(OX_7fb04361);

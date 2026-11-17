@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A712F40-E3B2-4DDE-A4BD-D79E2B3CF83A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>Butterfly Emulator</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="AStar, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AStar.dll</HintPath>
+    </Reference>
+    <Reference Include="Database Manager, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Database Manager.dll</HintPath>
+    </Reference>
+    <Reference Include="HabboEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\HabboEncryption.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\GiftFactory.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Relationship\Relationship.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Relationship\RelationshipComposer.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Butterfly\ButterflyEnvironment.cs" />
+    <Compile Include="Butterfly\Collections\DefinedHashtable!2.cs" />
+    <Compile Include="Butterfly\Collections\Locker.cs" />
+    <Compile Include="Butterfly\Collections\LockTimeoutException.cs" />
+    <Compile Include="Butterfly\Collections\onCycleDoneDelegate.cs" />
+    <Compile Include="Butterfly\Collections\QueuedDictionary!2.cs" />
+    <Compile Include="Butterfly\Collections\AcquireReaderLock.cs" />
+    <Compile Include="Butterfly\Collections\AcquireWriterLock.cs" />
+    <Compile Include="Butterfly\Collections\InterlockedLock.cs" />
+    <Compile Include="Butterfly\Collections\SafeDictionary!2.cs" />
+    <Compile Include="Butterfly\Collections\SafeEnumerator!1.cs" />
+    <Compile Include="Butterfly\Collections\SafeEnumeratorKvp!2.cs" />
+    <Compile Include="Butterfly\Core\ConfigurationData.cs" />
+    <Compile Include="Butterfly\Core\ConnectionHandeling.cs" />
+    <Compile Include="Butterfly\Core\ConsoleCommandHandeling.cs" />
+    <Compile Include="Butterfly\Core\RoomLoader.cs" />
+    <Compile Include="Butterfly\Core\ExceptionType.cs" />
+    <Compile Include="Butterfly\Core\IniReader.cs" />
+    <Compile Include="Butterfly\Core\LanguageLocale.cs" />
+    <Compile Include="Butterfly\Core\MissingLocaleException.cs" />
+    <Compile Include="Butterfly\Core\Logging.cs" />
+    <Compile Include="Butterfly\Core\RandomBase.cs" />
+    <Compile Include="Butterfly\Core\Quick.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\Achievement.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\AchievementLevel.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\AchievementLevelFactory.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\AchievementManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\Composer\AchievementListComposer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\Composer\AchievementProgressComposer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\Composer\AchievementScoreUpdateComposer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\Composer\AchievementUnlockedComposer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Games\SnowStorm\SnowItems.cs" />
+    <Compile Include="Butterfly\HabboHotel\Games\SnowStorm\SnowModel.cs" />
+    <Compile Include="Butterfly\HabboHotel\Games\SnowStorm\SnowStorm.cs" />
+    <Compile Include="Butterfly\HabboHotel\Games\SnowStorm\WarsData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\Guilds\Guilds.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\Guilds\GuildsPartsData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\Guilds\MyGuild.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\WallCoordinate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pets\PetRace.cs" />
+    <Compile Include="Butterfly\HabboHotel\Achievements\UserAchievement.cs" />
+    <Compile Include="Butterfly\HabboHotel\Advertisements\AdvertisementManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Advertisements\RoomAdvertisement.cs" />
+    <Compile Include="Butterfly\HabboHotel\Catalogs\Catalog.cs" />
+    <Compile Include="Butterfly\HabboHotel\Catalogs\CatalogItem.cs" />
+    <Compile Include="Butterfly\HabboHotel\Catalogs\CatalogPage.cs" />
+    <Compile Include="Butterfly\HabboHotel\Catalogs\EcotronReward.cs" />
+    <Compile Include="Butterfly\HabboHotel\Catalogs\Marketplace.cs" />
+    <Compile Include="Butterfly\HabboHotel\Catalogs\VoucherHandler.cs" />
+    <Compile Include="Butterfly\HabboHotel\ChatMessageStorage\ChatMessage.cs" />
+    <Compile Include="Butterfly\HabboHotel\ChatMessageStorage\ChatMessageFactory.cs" />
+    <Compile Include="Butterfly\HabboHotel\ChatMessageStorage\ChatMessageManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Events\EventCategory.cs" />
+    <Compile Include="Butterfly\HabboHotel\Events\EventManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Game.cs" />
+    <Compile Include="Butterfly\HabboHotel\GameClients\GameClient.cs" />
+    <Compile Include="Butterfly\HabboHotel\GameClients\GameClientManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\FurniInteractor.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorTeleport.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorSpinningBottle.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorDice.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorHabboWheel.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorLoveShuffler.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorOneWayGate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorAlert.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorVendor.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorGenericSwitch.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorNone.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorGate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorScoreboard.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorFootball.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorScoreCounter.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorBanzaiScoreCounter.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorBanzaiTimer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorBanzaiPuck.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorFreezeTimer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorFreezeTile.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorIncrementer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorIgnore.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\WiredInteractor.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorJukebox.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Interactors\InteractorPuzzleBox.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\InteractionType.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\InterractionTypes.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\Item.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\ItemManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\MoodlightData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\MoodlightPreset.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\OnItemTrigger.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\RoomItem.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\TeleHandler.cs" />
+    <Compile Include="Butterfly\HabboHotel\Items\UserItem.cs" />
+    <Compile Include="Butterfly\HabboHotel\Misc\AntiMutant.cs" />
+    <Compile Include="Butterfly\HabboHotel\Misc\ChatCommandHandler.cs" />
+    <Compile Include="Butterfly\HabboHotel\Misc\PetInformation.cs" />
+    <Compile Include="Butterfly\HabboHotel\Misc\CrossdomainPolicy.cs" />
+    <Compile Include="Butterfly\HabboHotel\Misc\LowPriorityWorker.cs" />
+    <Compile Include="Butterfly\HabboHotel\Misc\PixelManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Navigators\FlatCat.cs" />
+    <Compile Include="Butterfly\HabboHotel\Navigators\Navigator.cs" />
+    <Compile Include="Butterfly\HabboHotel\Navigators\PublicImageType.cs" />
+    <Compile Include="Butterfly\HabboHotel\Navigators\PublicItemType.cs" />
+    <Compile Include="Butterfly\HabboHotel\Navigators\PublicItem.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\ThreeDCoord.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\DreamPathfinder.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\ModelInfo.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\HeightInfo.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\SquareInformation.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\SquarePoint.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\Rotation.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pathfinding\XYZCoord.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pets\Pet.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pets\DatabaseUpdateState.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pets\PetCommand.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pets\PetCommandHandeler.cs" />
+    <Compile Include="Butterfly\HabboHotel\Pets\PetLocale.cs" />
+    <Compile Include="Butterfly\HabboHotel\Quests\QuestManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Quests\Quests.cs" />
+    <Compile Include="Butterfly\HabboHotel\Roles\RoleManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\BotAI.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\BotResponse.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\GenericBot.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\GuideBot.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\PetBot.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\RandomSpeech.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\RoomBot.cs" />
+    <Compile Include="Butterfly\HabboHotel\RoomBots\AIType.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomEventDelegate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomUserSaysDelegate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\TeamScoreChangedDelegate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\UserWalksFurniDelegate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\UserSaysArgs.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\ItemTriggeredArgs.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\TeamScoreChangedArgs.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\UserWalksOnArgs.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Games\Freeze.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Games\FreezePowerUp.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\GameItemHandler.cs" />
+    <Compile Include="Uber\HabboHotel\Rooms\InvokedChatMessage.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\CoordItemSearch.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\DynamicRoomModel.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Gamemap.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Games\BattleBanzai.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Games\GameManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Games\Soccer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Games\Team.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Games\TeamManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\HeightMap\HeightMapUpdateParser.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Room.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomEvent.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomIcon.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomItemHandling.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomIvokedItems\RoomAlert.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomIvokedItems\RoomKick.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomLinkInformation.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\TeleUserData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\SquareState.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomModel.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomUser.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\ItemEffectType.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\ByteToItemEffectEnum.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\ThreadPooling\IProcessable.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\ThreadPooling\TaskHandeler.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\ThreadPooling\TaskManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\ThreadPooling\TaskProcessLogic.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Trade.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\TradeUser.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\RoomUserManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\ConditionHandler.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\ConfigurationData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\MovementState.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\RotationState.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Interfaces\IWiredTrigger.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Interfaces\IWiredCondition.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Conditions\FurniHasUser.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Conditions\FurniStatePosMatch.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Conditions\LessThanTimer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Conditions\MoreThanTimer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Conditions\TriggerUserIsOnFurni.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Interfaces\IWiredEffect.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\GiveScore.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\MovementManagement.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Interfaces\IWiredCycleable.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\MoveRotate.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\PositionReset.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\ShowMessage.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\TeleportToItem.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\TimerReset.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Effects\ToggleItemState.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredLoader.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandler.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Interfaces\IWiredTimer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\SpecialEffects.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\EntersRoom.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\GameEnds.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\GameStarts.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\ScoreAchieved.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\Timer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\UserSays.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Repeater.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\SateChanged.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\WalksOffFurni.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\Triggers\WalksOnFurni.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredHandlers\UserWalksFurniValue.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredSaver.cs" />
+    <Compile Include="Butterfly\HabboHotel\Rooms\Wired\WiredUtillity.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\SoundMachine\JukeboxDiscksComposer.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\SoundMachine\RoomMusicController.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\SoundMachine\SongData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\SoundMachine\SongInstance.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\SoundMachine\SongItem.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\SoundMachine\SongManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\HelpCategory.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\HelpTool.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\HelpTopic.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\ModerationBanType.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\ModerationBan.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\ModerationBanException.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\ModerationBanManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\ModerationTool.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\TicketStatus.cs" />
+    <Compile Include="Butterfly\HabboHotel\Support\SupportTicket.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Authenticator\HabboFactory.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Authenticator\IncorrectLoginException.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Badges\Badge.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Badges\BadgeComponent.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Competitions\Ranking.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Competitions\RankingType.cs" />
+    <Compile Include="Butterfly\HabboHotel\Habbo\Users\Habbo.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Inventory\AvatarEffect.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Inventory\AvatarEffectsInventoryComponent.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Inventory\InventoryComponent.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Inventory\InventoryGlobal.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Messenger\HabboMessenger.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Messenger\MessengerBuddy.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Messenger\MessengerRequest.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Messenger\SearchResult.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Messenger\SearchResultFactory.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Subscriptions\Subscription.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\Subscriptions\SubscriptionManager.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\UserDataManagement\UserData.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\UserDataManagement\UserDataFactory.cs" />
+    <Compile Include="Butterfly\HabboHotel\Users\UserDataManagement\UserDataNotFoundException.cs" />
+    <Compile Include="MyAzure_Administration\Kernel\MySQL.cs" />
+    <Compile Include="Butterfly\Messages\ChatCommand.cs" />
+    <Compile Include="Butterfly\Messages\ChatCommandRegister.cs" />
+    <Compile Include="Butterfly\Messages\ClientMessage.cs" />
+    <Compile Include="Butterfly\Messages\ClientMessages\ClientMessageFactory.cs" />
+    <Compile Include="Butterfly\Messages\GameClientMessageHandler.cs" />
+    <Compile Include="Butterfly\Messages\FusedPacket.cs" />
+    <Compile Include="Butterfly\Messages\QueuedServerMessage.cs" />
+    <Compile Include="Butterfly\Messages\ServerMessage.cs" />
+    <Compile Include="Butterfly\Messages\StaticMessageHandlers\SharedPacketLib.cs" />
+    <Compile Include="Butterfly\Messages\StaticMessageHandlers\StaticClientMessageHandler.cs" />
+    <Compile Include="SharedPacketLib\IDataParser.cs" />
+    <Compile Include="Butterfly\Net\GamePacketParser.cs" />
+    <Compile Include="Butterfly\Net\InitialPacketParser.cs" />
+    <Compile Include="Butterfly\Net\MusSocket.cs" />
+    <Compile Include="Butterfly\Net\MusConnection.cs" />
+    <Compile Include="ConnectionManager\ConnectionState.cs" />
+    <Compile Include="ConnectionManager\ExceptionSeverity.cs" />
+    <Compile Include="ConnectionManager\ConnectionInformation.cs" />
+    <Compile Include="ConnectionManager\SocketManager.cs" />
+    <Compile Include="ConnectionManager\GameSocketManagerStatics.cs" />
+    <Compile Include="ConnectionManager\LoggingSystem\LogState.cs" />
+    <Compile Include="ConnectionManager\LoggingSystem\Message.cs" />
+    <Compile Include="ConnectionManager\Messages\MessageLoggerManager.cs" />
+    <Compile Include="SharedPacketLib\PacketMalformedException.cs" />
+    <Compile Include="ConnectionManager\Socket_Exceptions\SocketInitializationException.cs" />
+    <Compile Include="ConsoleWriter\Writer.cs" />
+    <Compile Include="ConsoleWriter\LogMessage.cs" />
+    <Compile Include="enclosuretest\Algorithm\GametileUpdate.cs" />
+    <Compile Include="enclosuretest\GameField.cs" />
+    <Compile Include="enclosuretest\PointField.cs" />
+    <Compile Include="HabboEvents\Outgoing.cs" />
+    <Compile Include="HabboEvents\Incoming.cs" />
+    <Compile Include="WiredSolver\CurrentType.cs" />
+    <Compile Include="WiredSolver\WireCurrentTransfer.cs" />
+    <Compile Include="WiredSolver\WiredSolverInstance.cs" />
+    <Compile Include="WiredSolver\WireTransfer.cs" />
+    <Compile Include="Butterfly\Program.cs" />
+    <Compile Include="Butterfly\Properties\Settings.cs" />
+    <Compile Include="Butterfly\ServerManager\SessionManagement.cs" />
+    <Compile Include="Butterfly\ServerManager\Session.cs" />
+    <Compile Include="Butterfly\ServerManager\DataSocket.cs" />
+    <Compile Include="Butterfly\Util\CoordinationUtil.cs" />
+    <Compile Include="HabboEncryption\HabboCrypto.cs" />
+    <Compile Include="Butterfly\Util\QueryChunk.cs" />
+    <Compile Include="Butterfly\Util\EndingType.cs" />
+    <Compile Include="Butterfly\TextHandling.cs" />
+    <Compile Include="Butterfly\Util\Base64Encoding.cs" />
+    <Compile Include="Butterfly\Util\ByteUtil.cs" />
+    <Compile Include="Butterfly\Util\OldEncoding.cs" />
+    <Compile Include="Butterfly\Util\WireEncoding.cs" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+</Project>

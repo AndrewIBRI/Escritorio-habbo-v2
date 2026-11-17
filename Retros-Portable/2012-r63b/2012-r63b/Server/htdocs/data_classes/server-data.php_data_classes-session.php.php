@@ -1,0 +1,1 @@
+<?php if(!session_is_registered(username)){ header("Location: $path"); exit; } ?>

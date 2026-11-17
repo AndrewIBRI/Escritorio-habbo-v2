@@ -1,0 +1,71 @@
+RewriteEngine On
+RewriteBase /
+
+# Bloquear acesso direto a pastas sensíveis
+RewriteRule ^(data_classes|xml)(/.*)?$ error.php [L]
+
+# .html -> .php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\.html$ $1.php [L]
+
+# Páginas simples
+RewriteRule ^account/logout/?$ logout.php [L]
+RewriteRule ^articles/?$ articles.php [L]
+RewriteRule ^articles/(.*)$ articles.php?web-articles-id=$1 [L,QSA]
+RewriteRule ^client/?$ client.php [L]
+RewriteRule ^clientutils/?$ clientutils.php [L]
+RewriteRule ^community/?$ community.php [L]
+RewriteRule ^community/staff/?$ staff.php [L]
+RewriteRule ^community/topstats/?$ topstats.php [L]
+RewriteRule ^community/regeln/?$ regeln.php [L]
+RewriteRule ^community/fansites/?$ fansites.php [L]
+RewriteRule ^credits/?$ credits.php [L]
+RewriteRule ^credits/habboclub/?$ club.php [L]
+RewriteRule ^credits/pixels/?$ pixel.php [L]
+RewriteRule ^credits/shop/?$ marktplatz.php [L]
+RewriteRule ^credits/shop/vip/?$ shop.php [L]
+RewriteRule ^credits/transactions/?$ transactions.php [L]
+RewriteRule ^forgot/?$ forgot.php [L]
+RewriteRule ^home/?$ home.php [L]
+RewriteRule ^home/(.*)$ home.php?web-home-name=$1 [L,QSA]
+RewriteRule ^index/?$ index.php [L]
+RewriteRule ^maintenance/?$ maintenance.php [L]
+RewriteRule ^me/?$ me.php [L]
+RewriteRule ^profile/?$ profile.php [L]
+RewriteRule ^profile/([^/]+)/?$ profile.php?web-profile-tab=$1 [L,QSA]
+RewriteRule ^tag/?$ tag.php [L]
+RewriteRule ^tag/([^/]+)/?$ tag.php?tag=$1 [L,QSA]
+RewriteRule ^welcome/?$ welcome.php [L]
+
+# Groups
+RewriteRule ^groups/([^/]+)/id/?$ groupsdata.php?web-group-id=$1&id [L,QSA]
+RewriteRule ^groups/([^/]+)/?$ groupsdata.php?web-group-id=$1 [L,QSA]
+
+# Habbo Imaging
+RewriteRule ^habbo-imaging/badge/([^/]+)$ habbo-imaging/badge.php?badge=$1 [L,QSA]
+RewriteRule ^habbo-imaging/badges/([^/]+)$ habbo-imaging/badge.php?badge=$1 [L,QSA]
+RewriteRule ^habbo-imaging/badge-fill/([^/]+)$ habbo-imaging/badge.php?badge=$1 [L,QSA]
+
+# Quickregister
+RewriteRule ^quickregister/back/?$ register.php?cancal [L,QSA]
+RewriteRule ^quickregister/cancel/?$ register.php?cancal [L,QSA]
+RewriteRule ^quickregister/start/?$ register.php?stap=1 [L,QSA]
+RewriteRule ^quickregister/start/error/([^/]+)/?$ register.php?stap=1&errors=$1 [L,QSA]
+RewriteRule ^quickregister/age_gate_submit/?$ register.php?stap=2 [L,QSA]
+RewriteRule ^quickregister/email_password/?$ register.php?stap=3 [L,QSA]
+RewriteRule ^quickregister/email_password/error/([^/]+)/?$ register.php?stap=3&errors=$1 [L,QSA]
+RewriteRule ^quickregister/email_password_submit/?$ register.php?stap=4 [L,QSA]
+RewriteRule ^quickregister/captcha/?$ register.php?stap=5 [L,QSA]
+RewriteRule ^quickregister/captcha/error/([^/]+)/?$ register.php?stap=5&errors=$1 [L,QSA]
+RewriteRule ^quickregister/captcha_submit/?$ register.php?stap=6 [L,QSA]
+
+# Refer
+RewriteRule ^r=(.*)$ refer.php?r=$1 [L,QSA]
+RewriteRule ^refer/(.*)$ refer.php?r=$1 [L,QSA]
+RewriteRule ^referidos/(.*)$ referidos.php?n=$1 [L,QSA]
+
+# Fallback geral (opcional, se quiser forçar index)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php [L]

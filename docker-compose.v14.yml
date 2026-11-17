@@ -1,0 +1,69 @@
+services:
+  v14-db:
+    image: mariadb:11
+    container_name: habbo-v14-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      MYSQL_DATABASE: ${DB_NAME_V14:-v14}
+      MYSQL_USER: ${MYSQL_USER:-habbo}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-habbopass}
+    volumes:
+      - v14_db_data:/var/lib/mysql
+      - ./docker/v14/sql/v14.sql:/docker-entrypoint-initdb.d/01_v14.sql:ro
+    ports:
+      - "${PORT_V14_DB:-33061}:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - habbo-v14-net
+
+  v14-emulator:
+    build:
+      context: .
+      dockerfile: docker/v14/emulator/Dockerfile
+    container_name: habbo-v14-emulator
+    environment:
+      DB_HOST: v14-db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: ${MYSQL_ROOT_PASSWORD:-habboroot}
+      DB_NAME: ${DB_NAME_V14:-v14}
+      PORT_V14_GAME: ${PORT_V14_GAME:-12321}
+      PORT_V14_MUS: ${PORT_V14_MUS:-12322}
+      PORT_V14_RCON: ${PORT_V14_RCON:-12309}
+    ports:
+      - "${PORT_V14_GAME:-12321}:12321"
+      - "${PORT_V14_MUS:-12322}:12322"
+      - "${PORT_V14_RCON:-12309}:12309"
+    depends_on:
+      v14-db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - habbo-v14-net
+
+  v14-web:
+    build:
+      context: .
+      dockerfile: docker/v14/web/Dockerfile
+    container_name: habbo-v14-web
+    environment:
+      HOST_IP: ${HOST_IP:-127.0.0.1}
+      PORT_V14_GAME: ${PORT_V14_GAME:-12321}
+      PORT_V14_MUS: ${PORT_V14_MUS:-12322}
+    ports:
+      - "${PORT_V14_WEB:-8014}:80"
+    restart: unless-stopped
+    networks:
+      - habbo-v14-net
+
+volumes:
+  v14_db_data:
+
+networks:
+  habbo-v14-net:
+    driver: bridge

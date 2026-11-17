@@ -1,0 +1,261 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-image: url(../bg.png);
+}
+.notice{
+	background-color: rgba(255, 0, 0, 0.63);
+	line-height: 40px;
+	height: 40px;
+	color: #FFF;
+	font-weight: bold;
+}
+#registerButton {
+	height: 108px;
+	font-family: Arial !important;
+	font-size: 28px;
+	padding: 0;
+	background: #51942F url(../registerButton.png) repeat-x;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer;
+	color: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	cursor: pointer;
+	width: 290px;
+	float: right;
+	border: 4px solid white;
+	box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-moz-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	text-shadow: 0 .1em #3D6E23;
+}
+#registerButton:hover {
+	background-color: #61AD37;
+	background-position: 0 -108px;
+}
+#registerButton span {
+	padding-top: 20px;
+	font-weight: bold;
+	display: block;
+}
+.loginContent{
+	background-color: rgba(181, 181, 181, 0.5);
+	border-radius:10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding:10px;
+	height:355px;
+	width:900px;
+	min-width: 900px;
+}
+.loginImage{
+	width: 296px;
+	height: 225px;
+	background-repeat: no-repeat;
+	background: url(http://habbo.ac/web_promo/promo_clouds.gif) -450px 0 no-repeat;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	float:right;
+	margin-top: 130px;
+	margin-right: -296px;
+	box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-moz-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+}
+.avatarImage{
+	float:right;
+	margin-top: 100px;
+	margin-right: 7px;
+}
+.avatarMessage{
+	font-family: arial,sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	background-color:rgba(99, 99, 99, .75);
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	width: 100%;
+	height: 20px;
+	color: #FFF;
+	text-shadow: 0 .1em #000;
+	float: left;
+	margin-top: -210px;
+	font-weight: bold;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.registerSection{
+	opacity: 1;
+}
+.logo {
+	width: 170px;
+	height: 58px;
+	background-repeat: no-repeat;
+	background: url(../ggirl.png) no-repeat;
+	float:left;
+	margin-bottom: -50px;
+}
+.logo:hover{
+	width: 170px;
+	height: 58px;
+	border: 0;
+	background-repeat: no-repeat;
+	background: url(../ggirl.png) -169px 0 no-repeat;
+	float:left;
+	margin-bottom: -50px;
+}
+.allContent{
+	margin-top: 7.5%;
+	max-width: 900px;
+	min-width: 900px;
+}
+.loginSection{
+	background-color: rgba(181, 181, 181, 0.5);
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	width:390px;
+	float:right;
+	height:40px;
+	padding:5px;
+}
+.inputLogin{
+	float:left;
+	color: #666;
+	height: 35px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border:1px solid #CECECE;
+	text-indent: 8px;
+	margin-right: 5px;
+}
+*:focus{
+    outline:0!important;
+    background-color:#f6f6f6!important;
+}
+.loginButton {
+	background-repeat: no-repeat;
+	background: #51942F url(../buttonBackground.png) center;
+	height: 39px;
+	line-height: 29px;
+	padding: 0;
+	width: 75px;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	text-indent: 0;
+	margin-right: 0;
+	cursor: pointer;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 2px solid rgba(0,0,0,.2);
+	transition: background .5s ease-in-out;
+	-moz-transition: background .5s ease-in-out;
+	-webkit-transition: background .5s ease-in-out;
+	-o-transition: background .5s ease-in-out;
+}
+.loginButton:hover{
+	background-color: #61AD37;
+}
+/* Coded by Daniel at Habbo.ac */
+.footer{
+	margin-top:20px;
+	background-color: rgba(181, 181, 181, 0.5);
+	border-radius:10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	width:914px;
+	padding:3px;
+}
+.leftContent{
+	float:left;
+	background-image: linear-gradient(bottom, rgb(245,245,245) 22%, rgb(227,227,227) 61%, rgb(222,222,222) 81%);
+	background-image: -o-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(227,227,227) 61%, rgb(222,222,222) 81%);
+	background-image: -moz-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(227,227,227) 61%, rgb(222,222,222) 81%);
+	background-image: -webkit-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(227,227,227) 61%, rgb(222,222,222) 81%);
+	background-image: -ms-linear-gradient(bottom, rgb(245,245,245) 22%, rgb(227,227,227) 61%, rgb(222,222,222) 81%);
+
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.22, rgb(245,245,245)),
+	color-stop(0.61, rgb(227,227,227)),
+	color-stop(0.81, rgb(222,222,222))
+	);
+	width:575px;
+	border-radius: 5px;
+	height: 47px;
+	box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-moz-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	margin-bottom: 20px;
+}
+.leftImage{
+	margin-top:5px;
+	float:left;
+	margin-left: 5px;
+}
+.leftContent b{
+	float:left;
+	color:#575757;
+	margin-left: 5px;
+	margin-top: 3px;
+	font-family: Arial !important;
+}
+.leftContent p{
+	font-family: Arial !important;
+	float:left;
+	padding:0;
+	font-size: 12px;
+	margin-left: -58px;
+	color:#575757;
+	margin-top: 0px;
+}
+.leftImageBackground{
+	background-color: #575757;
+	border-radius: 5px;
+	height:27px;
+	padding:5px;
+}
+.landingImage{
+	background-repeat: no-repeat;
+	/*background:url(../index_landing.png) -200px -20px no-repeat;*/
+	background: url(http://habbo.ac/image.php?figure=hd-180-1.wa-3211-64-64.sh-290-96.ch-3001-110-96.he-3181-62.lg-275-64.hr-828-45&size=b&direction=2&head_direction=3&gesture=sml) 98px 195px no-repeat,url(../mystics_landing.png) bottom left,url(../spiked_backdrop.png),url(../landing_background.png) bottom;
+	float: left;
+	width: 575px;
+	height: 355px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-moz-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, .25);
+}
+.error{
+	background-color: rgba(255, 0, 0, 0.63);
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	width:200px;
+	margin-right: 250px;
+	height:40px;
+	padding:5px;
+	margin-bottom:-50px;
+	color:#FFF;
+	font-weight: bold;
+	line-height: 40px;
+}

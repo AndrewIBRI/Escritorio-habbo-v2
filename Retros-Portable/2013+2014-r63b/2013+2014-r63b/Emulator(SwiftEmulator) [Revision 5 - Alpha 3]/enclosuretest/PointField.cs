@@ -1,0 +1,67 @@
+﻿namespace enclosuretest
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Runtime.CompilerServices;
+
+    public class PointField
+    {
+        private static readonly Point badPoint = new Point(-1, -1);
+        private Point mostDown = badPoint;
+        private Point mostLeft = badPoint;
+        private Point mostRight = badPoint;
+        private Point mostTop = badPoint;
+        private List<Point> PointList = new List<Point>();
+
+        public PointField(byte forValue)
+        {
+            this.forValue = forValue;
+        }
+
+        public void add(Point p)
+        {
+            if (this.mostLeft == badPoint)
+            {
+                this.mostLeft = p;
+            }
+            if (this.mostRight == badPoint)
+            {
+                this.mostRight = p;
+            }
+            if (this.mostTop == badPoint)
+            {
+                this.mostTop = p;
+            }
+            if (this.mostDown == badPoint)
+            {
+                this.mostDown = p;
+            }
+            if (p.X < this.mostLeft.X)
+            {
+                this.mostLeft = p;
+            }
+            if (p.X > this.mostRight.X)
+            {
+                this.mostRight = p;
+            }
+            if (p.Y > this.mostTop.Y)
+            {
+                this.mostTop = p;
+            }
+            if (p.Y < this.mostDown.Y)
+            {
+                this.mostDown = p;
+            }
+            this.PointList.Add(p);
+        }
+
+        public List<Point> getPoints()
+        {
+            return this.PointList;
+        }
+
+        public byte forValue { get; private set; }
+    }
+}
+
