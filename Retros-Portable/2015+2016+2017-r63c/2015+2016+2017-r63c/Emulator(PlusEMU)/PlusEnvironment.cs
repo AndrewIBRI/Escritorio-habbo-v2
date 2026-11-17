@@ -82,7 +82,7 @@ namespace Plus
             Console.WriteLine("                                http://PlusIndustry.com");
 
             Console.WriteLine("");
-            Console.Title = "Loading Plus Emulator";
+            try { Console.Title = "Loading Plus Emulator"; } catch { }
             _defaultEncoding = Encoding.Default;
 
             Console.WriteLine("");
@@ -113,10 +113,17 @@ namespace Plus
 
                 _manager = new DatabaseManager(connectionString.ToString());
 
+                int attempts = 0;
+                while (!_manager.IsConnected() && attempts < 30)
+                {
+                    attempts++;
+                    log.Info("Waiting for MySQL server to be ready (attempt " + attempts + "/30)...");
+                    Thread.Sleep(2000);
+                }
+
                 if (!_manager.IsConnected())
                 {
-                    log.Error("Failed to connect to the specified MySQL server.");
-                    Console.ReadKey(true);
+                    log.Error("Failed to connect to the specified MySQL server after 30 attempts.");
                     Environment.Exit(1);
                     return;
                 }
@@ -163,27 +170,19 @@ namespace Plus
             }
             catch (KeyNotFoundException e)
             { 
-                log.Error("Please check your configuration file - some values appear to be missing.");
-                log.Error("Press any key to shut down ...");
-         
-                Console.ReadKey(true);
+                log.Error("Please check your configuration file - some values appear to be missing: " + e);
                 Environment.Exit(1);
                 return;
             }
             catch (InvalidOperationException e)
             {
                 log.Error("Failed to initialize PlusEmulator: " + e.Message);
-                log.Error("Press any key to shut down ...");
-                Console.ReadKey(true);
                 Environment.Exit(1);
                 return;
             }
             catch (Exception e)
             {
                 log.Error("Fatal error during startup: " + e);
-                log.Error("Press a key to exit");
-
-                Console.ReadKey();
                 Environment.Exit(1);
             }
         }

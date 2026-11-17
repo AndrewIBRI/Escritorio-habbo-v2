@@ -17,6 +17,7 @@ echo "[*] Waiting for Database at ${DB_HOST}:${DB_PORT}..."
 while ! (timeout 1 bash -c "cat < /dev/null > /dev/tcp/${DB_HOST}/${DB_PORT}") 2>/dev/null && ! nc -z "${DB_HOST}" "${DB_PORT}" 2>/dev/null; do
     sleep 1
 done
+sleep 3
 echo "[+] Database is reachable!"
 
 cat <<EOF > /app/bin/Debug/config.ini
