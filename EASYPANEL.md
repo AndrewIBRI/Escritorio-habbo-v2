@@ -1,97 +1,64 @@
-# Deploying Habbo 6-in-1 Suite on Easypanel
+# Deploying Habbo Suite on Easypanel
 *(Guia de Deploy no Easypanel - Português & English)*
 
 ---
 
 ## 🇧🇷 Português
 
-O [Easypanel](https://easypanel.io) é um painel moderno baseado em Docker que simplifica o gerenciamento de servidores e aplicações. Todos os retros deste repositório foram preparados para rodar perfeitamente no Easypanel com suporte a proxy reverso e portas TCP diretas.
+O [Easypanel](https://easypanel.io) é um painel moderno baseado em Docker que simplifica o gerenciamento de servidores e aplicações. Todos os retros deste repositório foram preparados para rodar perfeitamente no Easypanel com suporte a proxy reverso e portas TCP/WebSocket.
 
-### Pré-requisitos
-1. Uma VPS com Ubuntu 22.04+ e o Easypanel instalado:
-   ```bash
-   curl -sSL https://get.easypanel.io | sh
-   ```
-2. Portas TCP liberadas no Firewall da sua VPS / Cloud Provider (Oracle Cloud, DigitalOcean, AWS, GCP, Hetzner, etc.):
-   - Portas HTTP Web: `8014`, `8031`, `8061`, `8062`, `8063`, `8064`
-   - Portas TCP Game: `12321`, `12331`, `30000`, `30100`, `30200`, `30300`
+### 🌟 Recomendado: Stack Moderna 100% HTML5 (Nitro + Arcturus) — Sem Flash!
+Se você quer que o hotel funcione diretamente nos navegadores modernos (Brave, Google Chrome, Edge, Safari, Celular) **sem precisar de Adobe Flash Player nem FlashBrowser**, utilize o stack **Nitro HTML5**:
 
----
-
-### Opção 1: Deploy Rápido via Docker Compose no Easypanel (Recomendado)
-
-1. Abra o seu painel do Easypanel.
-2. Crie um novo Projeto (ex: `habbo-retros`).
-3. Clique em **+ Service** -> Selecione **App** -> Escolha **Docker Compose**.
-4. Defina a origem do código como **Git Repository**:
-   - Repository URL: a URL do seu repositório no GitHub.
-   - Branch: `main` (ou a branch desejada).
-   - Compose File Path: `docker-compose.yml`
-5. Na aba **Environment**, adicione as variáveis de ambiente necessárias (consulte `.env.example`):
+1. No Easypanel, selecione o seu App Compose.
+2. Na aba **Source**:
+   - Compose File Path: `docker-compose.nitro.yml`
+3. Na aba **Environment**:
    ```env
-   HOST_IP=SEU_IP_PUBLICO_DA_VPS
-   MYSQL_ROOT_PASSWORD=sua_senha_segura
-   MYSQL_PASSWORD=sua_senha_segura
+   PRIMARY_DOMAIN=server-flow-hotel.00behz.easypanel.host
+   WS_PROTOCOL=wss
+   HTTP_PROTOCOL=https
+   PORT_NITRO_WEB=8064
    ```
-   > **Importante**: O `HOST_IP` DEVE ser o IP público da sua VPS ou o seu domínio apontado para a VPS. O cliente Flash e Shockwave usam este IP para conectar no emulador.
-6. Se quiser subir apenas uma versão específica (ex: v14 ou r63a), passe o comando ou profile no Easypanel:
-   - Compose profiles: `v14` (para 2007) ou `r63a` (para 2011) ou `all` (para todos).
-7. Clique em **Deploy**!
+4. Na aba **Domains**:
+   - `https://server-flow-hotel.00behz.easypanel.host/` -> `http://server_flow-hotel:8064/`
+5. Clique em **Deploy**!
+6. Pronto! Ao acessar seu domínio:
+   - Página inicial moderna com contagem de jogadores online.
+   - Opção de login, registro rápido ou **"Jogar Agora como Convidado"** com 1 clique.
+   - O hotel abre direto na tela em canvas HTML5/PixiJS com WebSockets seguros (`wss://`).
 
 ---
 
-### Opção 2: Deploy de um Retro Individual
+### Opção: Retros Clássicos com Flash / Shockwave
 
-Para rodar apenas um retro específico sem subir containers adicionais:
-1. No Easypanel, crie um novo **App (Docker Compose)**.
-2. Aponte o Compose File Path para o compose da versão desejada:
-   - `docker-compose.v14.yml` (2007 - Kepler)
-   - `docker-compose.v31.yml` (2009 - Havana)
-   - `docker-compose.r63a.yml` (2011 - Gold Tree)
-   - `docker-compose.r63b.yml` (2012 - Atom/ButterStorm)
-   - `docker-compose.r63b-swift.yml` (2013-2014 - Swift)
-   - `docker-compose.r63c.yml` (2015-2017 - PlusEMU)
-3. Configure `HOST_IP=SEU_IP_PUBLICO` nas variáveis de ambiente.
-4. Clique em **Deploy**.
+Para rodar as versões nostálgicas antigas (que necessitam de FlashBrowser ou Shockwave):
+Aponte o **Compose File Path** para:
+- `docker-compose.nitro.yml` (Moderno HTML5 - Nitro + Arcturus)
+- `docker-compose.r63c.yml` (2015-2017 - PlusEMU + RevCMS - requer FlashBrowser)
+- `docker-compose.r63b-swift.yml` (2013-2014 - Swift)
+- `docker-compose.r63b.yml` (2012 - Atom/ButterStorm)
+- `docker-compose.r63a.yml` (2011 - Gold Tree)
+- `docker-compose.v31.yml` (2009 - Havana)
+- `docker-compose.v14.yml` (2007 - Kepler)
 
 ---
 
 ## 🇺🇸 English
 
-[Easypanel](https://easypanel.io) is a modern Docker-based server management panel. All retros in this repository are pre-configured to run seamlessly on Easypanel with zero port collisions and automated database initialization.
+Easypanel is a modern Docker-powered server manager. All retro versions in this repository are optimized to run on Easypanel.
 
-### Prerequisites
-1. A Linux VPS with Ubuntu 22.04+ running Easypanel:
-   ```bash
-   curl -sSL https://get.easypanel.io | sh
-   ```
-2. Firewall open for HTTP and raw TCP emulator ports on your cloud provider:
-   - HTTP Web Ports: `8014`, `8031`, `8061`, `8062`, `8063`, `8064`
-   - TCP Game Ports: `12321`, `12331`, `30000`, `30100`, `30200`, `30300`
+### 🌟 Recommended: Modern 100% HTML5 Stack (Nitro + Arcturus) — No Flash!
+To play directly in modern browsers (Brave, Chrome, Edge, Safari, Mobile) with **no Adobe Flash Player needed**:
 
----
-
-### Step-by-Step Deployment
-
-1. Open your Easypanel dashboard.
-2. Create a new Project (e.g. `habbo-retros`).
-3. Click **+ Service** -> Select **App** -> Select **Docker Compose**.
-4. Set source to **Git Repository**:
-   - URL: Your GitHub repository URL
-   - Branch: `main`
-   - Compose path: `docker-compose.yml` (or `docker-compose.v14.yml` for solo v14)
-5. Under **Environment**, configure:
+1. In Easypanel, select your Compose App.
+2. Set **Compose File Path**: `docker-compose.nitro.yml`
+3. Under **Environment**:
    ```env
-   HOST_IP=YOUR_VPS_PUBLIC_IP_OR_DOMAIN
-   MYSQL_ROOT_PASSWORD=your_strong_password
-   MYSQL_PASSWORD=your_strong_password
+   PRIMARY_DOMAIN=your-domain.easypanel.host
+   WS_PROTOCOL=wss
+   HTTP_PROTOCOL=https
+   PORT_NITRO_WEB=8064
    ```
-6. Set the Docker Compose profile:
-   - `v14` (2007)
-   - `v31` (2009)
-   - `r63a` (2011)
-   - `r63b` (2012)
-   - `r63b-swift` (2013-2014)
-   - `r63c` (2015-2017)
-   - `all` (All retros concurrently)
-7. Click **Deploy**. The containers will build, import SQL schemas automatically, and start up healthy!
+4. Under **Domains**, map your domain to `http://server_flow-hotel:8064/`
+5. Click **Deploy**!

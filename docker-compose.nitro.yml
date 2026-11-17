@@ -1,0 +1,66 @@
+services:
+  nitro-db:
+    image: mariadb:10.6
+    container_name: habbo-nitro-db
+    restart: unless-stopped
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --sql-mode="" --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-HabboRoot_9csibYIFT59PrBPOfLxZmYTu}
+      MYSQL_DATABASE: arcturus
+      MYSQL_USER: ${MYSQL_USER:-arcturus_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-HabboUser_0kh9qhJkhYI0Klk444U45VjA}
+    ports:
+      - "${PORT_NITRO_DB:-33067}:3306"
+    volumes:
+      - ./docker/nitro/sql:/docker-entrypoint-initdb.d:ro
+      - nitro-db-data:/var/lib/mysql
+
+  nitro-emulator:
+    build:
+      context: .
+      dockerfile: docker/nitro/emulator/Dockerfile
+    container_name: habbo-nitro-emulator
+    restart: unless-stopped
+    environment:
+      DB_HOST: nitro-db
+      DB_PORT: 3306
+      DB_USER: arcturus_user
+      DB_PASS: ${MYSQL_PASSWORD:-HabboUser_0kh9qhJkhYI0Klk444U45VjA}
+      DB_NAME: arcturus
+    ports:
+      - "${PORT_NITRO_GAME:-3000}:3000"
+      - "${PORT_NITRO_RCON:-3001}:3001"
+      - "${PORT_NITRO_WS:-2096}:2096"
+    depends_on:
+      - nitro-db
+
+  nitro-web:
+    build:
+      context: .
+      dockerfile: docker/nitro/web/Dockerfile
+    container_name: habbo-nitro-web
+    restart: unless-stopped
+    environment:
+      DB_HOST: nitro-db
+      DB_PORT: 3306
+      DB_USER: arcturus_user
+      DB_PASS: ${MYSQL_PASSWORD:-HabboUser_0kh9qhJkhYI0Klk444U45VjA}
+      DB_NAME: arcturus
+      PRIMARY_DOMAIN: ${PRIMARY_DOMAIN:-server-flow-hotel.00behz.easypanel.host}
+      WS_PROTOCOL: ${WS_PROTOCOL:-wss}
+      HTTP_PROTOCOL: ${HTTP_PROTOCOL:-https}
+    ports:
+      - "${PORT_NITRO_WEB:-8064}:80"
+    depends_on:
+      - nitro-db
+      - nitro-emulator
+    networks:
+      default:
+        aliases:
+          - server_flow-hotel
+          - flow-hotel
+          - nitro-web
+          - habbo-nitro-web
+
+volumes:
+  nitro-db-data:
