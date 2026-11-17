@@ -107,8 +107,17 @@ EOF
 done
 
 # Dynamic host injection in external_variables
-find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|localhost/swf|${CLIENT_HOST}:${WEB_PORT}/swf|g" {} + || true
+if [ -n "${SITE_URL}" ] || [ -n "${PRIMARY_DOMAIN}" ]; then
+    SWF_BASE_URL="${HOTEL_URL}/swf"
+else
+    SWF_BASE_URL="http://${CLIENT_HOST}:${WEB_PORT}/swf"
+fi
+
+find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|//localhost/swf|${SWF_BASE_URL}|g" {} + || true
+find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|localhost/swf|${SWF_BASE_URL#*://}|g" {} + || true
 find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|http://localhost/|${HOTEL_URL}/|g" {} + || true
+find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|connection.info.port.no=.*|connection.info.port.no=${GAME_PORT}|g" {} + || true
+find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|30000|${GAME_PORT}|g" {} + || true
 
 # Ensure Apache listens on both port 80 and 8064 for Easypanel routing compatibility
 if ! grep -q "Listen 8064" /etc/apache2/ports.conf 2>/dev/null; then
