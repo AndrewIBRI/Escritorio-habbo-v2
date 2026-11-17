@@ -54,6 +54,7 @@ services:
     depends_on:
       - nitro-db
       - nitro-emulator
+      - r63c-web
     networks:
       default:
         aliases:
@@ -61,6 +62,25 @@ services:
           - flow-hotel
           - nitro-web
           - habbo-nitro-web
+
+  # Automatic decommission of legacy r63c containers to release port 8064 and RAM
+  r63c-web:
+    image: alpine:latest
+    container_name: habbo-r63c-web
+    command: ["true"]
+    restart: "no"
+
+  r63c-emulator:
+    image: alpine:latest
+    container_name: habbo-r63c-emulator
+    command: ["true"]
+    restart: "no"
+
+  r63c-db:
+    image: alpine:latest
+    container_name: habbo-r63c-db
+    command: ["true"]
+    restart: "no"
 
 volumes:
   nitro-db-data:
