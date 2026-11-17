@@ -2658,7 +2658,7 @@ CREATE TABLE `users` (
   `disable_forced_effects` enum('0','1') NOT NULL DEFAULT '0',
   `allow_mimic` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`,`auth_ticket`),
-  UNIQUE KEY `id` (`id`) USING HASH,
+  UNIQUE KEY `id` (`id`) USING BTREE,
   UNIQUE KEY `username` (`username`) USING BTREE,
   KEY `rank` (`rank`),
   KEY `ip_last` (`ip_last`),

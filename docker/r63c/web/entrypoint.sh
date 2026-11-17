@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -e
 
 echo "[*] RevCMS (2015-2017-r63c PlusEMU) Web starting..."
@@ -109,6 +109,11 @@ done
 # Dynamic host injection in external_variables
 find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|localhost/swf|${CLIENT_HOST}:${WEB_PORT}/swf|g" {} + || true
 find /var/www/html/swf/gamedata/ -type f -name "*.txt" -exec sed -i "s|http://localhost/|${HOTEL_URL}/|g" {} + || true
+
+# Ensure Apache listens on both port 80 and 8064 for Easypanel routing compatibility
+if ! grep -q "Listen 8064" /etc/apache2/ports.conf 2>/dev/null; then
+    echo "Listen 8064" >> /etc/apache2/ports.conf
+fi
 
 echo "[*] Starting Apache..."
 exec apache2-foreground

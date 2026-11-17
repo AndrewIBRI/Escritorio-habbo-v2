@@ -1635,8 +1635,8 @@ CREATE TABLE `room_active` (
   `roomid` int(10) unsigned NOT NULL,
   `active_users` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`roomid`),
-  UNIQUE KEY `roomid` (`roomid`) USING HASH,
-  KEY `activeusers` (`active_users`) USING HASH
+  UNIQUE KEY `roomid` (`roomid`) USING BTREE,
+  KEY `activeusers` (`active_users`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1983,7 +1983,7 @@ CREATE TABLE `rooms` (
   `wallthickness` int(6) NOT NULL,
   `GroupId` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`) USING HASH,
+  UNIQUE KEY `id` (`id`) USING BTREE,
   KEY `owner` (`owner`) USING BTREE,
   KEY `category` (`category`) USING BTREE,
   KEY `caption` (`caption`) USING BTREE,
@@ -2691,7 +2691,7 @@ CREATE TABLE `trigger_in_place` (
   `original_trigger` int(11) NOT NULL,
   `triggers_item` int(11) NOT NULL,
   PRIMARY KEY (`original_trigger`,`triggers_item`),
-  KEY `triggers_item` (`triggers_item`) USING HASH
+  KEY `triggers_item` (`triggers_item`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -3047,7 +3047,7 @@ DROP TABLE IF EXISTS `user_online`;
 CREATE TABLE `user_online` (
   `userid` int(10) unsigned NOT NULL,
   PRIMARY KEY (`userid`),
-  UNIQUE KEY `userid` (`userid`) USING HASH
+  UNIQUE KEY `userid` (`userid`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -3141,7 +3141,7 @@ CREATE TABLE `user_quests` (
   `quest_id` int(10) unsigned NOT NULL,
   `progress` int(10) NOT NULL,
   PRIMARY KEY (`user_id`,`quest_id`),
-  KEY `userid` (`user_id`) USING HASH,
+  KEY `userid` (`user_id`) USING BTREE,
   KEY `questid` (`quest_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3371,7 +3371,7 @@ CREATE TABLE `user_tickets` (
   `sessionticket` varchar(100) NOT NULL,
   `ipaddress` varchar(20) NOT NULL,
   PRIMARY KEY (`sessionticket`,`ipaddress`),
-  UNIQUE KEY `index_id` (`userid`) USING HASH
+  UNIQUE KEY `index_id` (`userid`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -3510,7 +3510,7 @@ CREATE TABLE `users` (
   `staff_pin` int(4) NOT NULL DEFAULT '1234',
   `position` varchar(30) NOT NULL,
   `acc_pornbanned` enum('0','1') NOT NULL DEFAULT '0',
-  UNIQUE KEY `id` (`id`) USING HASH
+  UNIQUE KEY `id` (`id`) USING BTREE
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

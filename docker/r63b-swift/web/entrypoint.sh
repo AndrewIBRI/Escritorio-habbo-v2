@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -e
 
 echo "[*] ProjectHabbo CMS (2013+2014-r63b Swift) Web starting..."

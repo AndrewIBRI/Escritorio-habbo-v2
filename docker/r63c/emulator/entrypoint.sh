@@ -53,5 +53,6 @@ client.maxrequests=300
 EOF
 
 echo "[*] Generated config.ini successfully."
+cd /app/bin/Debug
 echo "[*] Launching Plus Emulator via Mono..."
 exec mono "Plus Emulator.exe"
