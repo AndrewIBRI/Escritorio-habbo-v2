@@ -28,9 +28,9 @@ services:
       DB_PASS: ${MYSQL_PASSWORD:-HabboUser_0kh9qhJkhYI0Klk444U45VjA}
       DB_NAME: arcturus
     ports:
-      - "${PORT_NITRO_GAME:-3000}:3000"
-      - "${PORT_NITRO_RCON:-3001}:3001"
-      - "${PORT_NITRO_WS:-2096}:2096"
+      - "${PORT_NITRO_GAME:-38100}:3000"
+      - "${PORT_NITRO_RCON:-38101}:3001"
+      - "${PORT_NITRO_WS:-38196}:2096"
     depends_on:
       - nitro-db
 
