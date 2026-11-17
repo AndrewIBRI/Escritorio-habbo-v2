@@ -16,6 +16,6 @@ COPY docker/nitro/web/client/ /var/www/html/hotel/
 COPY docker/nitro/web/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-EXPOSE 80
+EXPOSE 80 8064
 
 ENTRYPOINT ["/entrypoint.sh"]

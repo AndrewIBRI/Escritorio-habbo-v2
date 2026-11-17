@@ -13,6 +13,11 @@ done
 
 echo "[+] Database connected!"
 
+# Ensure Apache listens on both 80 and 8064 for Easypanel routing compatibility
+if ! grep -q "Listen 8064" /etc/apache2/ports.conf 2>/dev/null; then
+    echo "Listen 8064" >> /etc/apache2/ports.conf
+fi
+
 # Configure client json files with domain and websocket URL
 php /app/configure_client.php || true
 

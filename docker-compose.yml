@@ -450,8 +450,6 @@ services:
     networks:
       habbo-r63c-net:
         aliases:
-          - server_flow-hotel
-          - flow-hotel
           - r63c-web
           - habbo-r63c-web
 

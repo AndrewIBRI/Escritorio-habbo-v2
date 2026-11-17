@@ -50,7 +50,7 @@ services:
       WS_PROTOCOL: ${WS_PROTOCOL:-wss}
       HTTP_PROTOCOL: ${HTTP_PROTOCOL:-https}
     ports:
-      - "${PORT_NITRO_WEB:-8064}:80"
+      - "${PORT_NITRO_WEB:-8064}:8064"
     depends_on:
       - nitro-db
       - nitro-emulator
